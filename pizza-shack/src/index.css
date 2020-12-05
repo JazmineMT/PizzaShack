@@ -1,0 +1,109 @@
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family : 'lato';
+}
+
+.App {
+  background-color: #ffffff;
+}
+
+.topMenu{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.first{
+  display: flex;
+  padding: 15px 20px 15px;
+}
+
+.secondHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background: #202020 ;
+  border-bottom: 5px solid #C0392B;
+  color: white;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.welcome {
+  display: flex;
+  padding: 15px 5px 0px 15px;
+}
+
+.join {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px 15px 15px;
+}
+
+footer{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.footermenu{
+  display: flex;
+  flex-direction: column;
+}
+.copyright {
+  text-align: center;
+}
+
+.link{
+  text-decoration: none;
+}
+
+.signIn{
+  text-decoration: none;
+  color: #C0392B;
+  padding-left: 8px;
+}
+
+.signIn:hover{
+  filter: brightness(150%) 
+}
+
+.textforborder{
+  border-right: 1px solid white;
+  padding-right: 15px;
+}
+.links{
+  text-decoration: none;
+  padding: 5px;
+}
+
+.title{
+  padding-top: 10px;
+  text-align: center;
+}
+
+.dropdownmenu{
+  display: flex;
+  flex-direction: column;
+  background : #ffffff;
+  padding: 10px;
+}
+
+.dropdown{
+  font-size: 20px;
+  text-decoration: none;
+  background: none;
+  color: black
+}
+
+.menu{
+  width: 10px;
+  height: 10px;
+}
