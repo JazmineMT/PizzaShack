@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-do
 import {Dropdown, Navbar} from 'react-bootstrap'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import LandingPage from './Components/Pages/LandingPage'
+import Pizza from './Components/Pages/Pizza'
 
 function App() {
   return (
@@ -47,9 +49,10 @@ function App() {
         </div>
         <Switch>
           <Route exact path ='/home'>
-
+            <LandingPage/>
           </Route>
             <Route exact path ='/pizza'>
+              <Pizza/>
             
             </Route>
             <Route exact path ='/wings'>
