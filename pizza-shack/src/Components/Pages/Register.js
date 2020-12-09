@@ -2,15 +2,14 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 import {Header, AccountInfo, YourInfo, Container, TextFieldBox, Border, Container2, ButtonBox} from '../styles/RegisterStyles'
 import LocalPizzaIcon from '@material-ui/icons/LocalPizza';
-import LockIcon from '@material-ui/icons/Lock'
 import IconButton from '@material-ui/core/IconButton';
-import FilledInput from '@material-ui/core/FilledInput';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import {TextField , Button, FormControl} from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
+import FilledInput from '@material-ui/core/FilledInput';
 
 const initailFormValues = {
     firstname:'',
@@ -58,6 +57,14 @@ const classes = useStyles();
           });
       };
 
+      const handleClickShowPassword = () => {
+        setValues({ ...values, showPassword: !values.showPassword });
+      };
+    
+      const handleMouseDownPassword = (event) => {
+        event.preventDefault();
+      };
+
     return(
         <Container>
             <Container2>
@@ -76,33 +83,33 @@ const classes = useStyles();
                         value={values.email}
                         onChange={handleChange}
                         helperText={formErrors.email}
-                        variant='outlined'
+                        variant='filled'
                         placeholder="Email"
                         fullWidth = {true}
                         />
                         <h3 className='regTitle'> Password</h3>
-                    <TextField
+                        <FilledInput
                         className={classes.textBox}
-                        type='text'
+                        placeholder='Password '
+                        type={values.showPassword ? 'text' : 'password'}
                         name='password'
                         value={values.password}
                         onChange={handleChange}
-                        helperText={formErrors.password}
-                        variant='outlined'
-                        placeholder="Password"
+                        variant='filled'
                         fullWidth = {true}
-                        />
-                        <h3 className='regTitle'> Confirm Password</h3>
-                    <TextField
-                        className={classes.textBox}
-                        type='text'
-                        name='confirm'
-                        value={values.confirm}
-                        onChange={handleChange}
-                        helperText={formErrors.confirm}
-                        variant='outlined'
-                        placeholder="Confirm Password"
-                        fullWidth = {true}
+                        endAdornment={
+                            <InputAdornment position='end'>
+                            <IconButton
+                            aria-label='toggle passowrd visibility'
+                            onClick={handleClickShowPassword}
+                            onMouse={handleMouseDownPassword}
+                            edge='end'
+                            >
+                            {values.showPassword ? <Visibility/> : <VisibilityOff/>}
+                            </IconButton>
+                            </InputAdornment>
+                            }
+                        labelWidth={70}
                         />
                     </TextFieldBox>
 
@@ -120,7 +127,7 @@ const classes = useStyles();
                         value={values.firstname}
                         onChange={handleChange}
                         helperText={formErrors.firstName}
-                        variant='outlined'
+                        variant='filled'
                         placeholder="Jane"
                         fullWidth = {true}
                         />
@@ -132,7 +139,7 @@ const classes = useStyles();
                         value={values.lastname}
                         onChange={handleChange}
                         helperText={formErrors.lastName}
-                        variant='outlined'
+                        variant='filled'
                         placeholder="Dough"
                         fullWidth = {true}
                         />
@@ -144,7 +151,7 @@ const classes = useStyles();
                         value={values.phone}
                         onChange={handleChange}
                         helperText={formErrors.phone}
-                        variant='outlined'
+                        variant='filled'
                         placeholder="(XXX)-XXX-XXXX"
                         fullWidth = {true}
                         />
@@ -156,7 +163,7 @@ const classes = useStyles();
                         value={values.zipCode}
                         onChange={handleChange}
                         helperText={formErrors.zipCode}
-                        variant='outlined'
+                        variant='filled'
                         placeholder="XXXXX"
                         fullWidth = {true}
                         />
