@@ -27,6 +27,7 @@ export const Container2 = styled.div `
 width: 100%;
 padding: 3%;
 
+
 `
 
 
@@ -50,3 +51,14 @@ padding-bottom: 5%;
 
 
 `
+
+export const TextFieldBox2 = styled.div `
+width: 60%;
+
+`
+export const LoginInfo = styled.div `
+width: 100%; 
+display: flex;
+justify-content: center;
+padding: 5%;
+`   

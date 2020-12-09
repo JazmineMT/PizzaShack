@@ -8,6 +8,7 @@ import AboutUs from './Components/Pages/AboutUs'
 import Pizza from './Components/Pages/Pizza'
 import Wings from './Components/Pages/Wings'
 import Register from './Components/Pages/Register'
+import SignIn from './Components/Pages/SignIn'
 import Pasta from './Components/Pages/Pasta'
 import Drinks from './Components/Pages/Drinks'
 import Deals from './Components/Pages/Deals'
@@ -98,6 +99,7 @@ function App() {
             
             </Route>
             <Route exact path ='/signin'>
+              <SignIn/>
             
             </Route>
             <Route exact path ='/register'>
