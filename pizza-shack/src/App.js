@@ -4,6 +4,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import LandingPage from './Components/Pages/LandingPage'
 import FAQs from './Components/Pages/FAQs'
+import AboutUs from './Components/Pages/AboutUs'
 import Pizza from './Components/Pages/Pizza'
 import Wings from './Components/Pages/Wings'
 import Pasta from './Components/Pages/Pasta'
@@ -99,7 +100,7 @@ function App() {
             
             </Route>
             <Route exact path ='/aboutUs'>
-            
+              <AboutUs/>
             </Route>
             <Route exact path ='/FAQs'>
                 <FAQs/>
