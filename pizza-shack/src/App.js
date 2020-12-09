@@ -4,8 +4,26 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import LandingPage from './Components/Pages/LandingPage'
 import Pizza from './Components/Pages/Pizza'
+import Wings from './Components/Pages/Wings'
+import Pasta from './Components/Pages/Pasta'
+import Drinks from './Components/Pages/Drinks'
+import Deals from './Components/Pages/Deals'
+import Desserts from './Components/Pages/Desserts'
+import Sides from './Components/Pages/Sides'
+import { sides } from './Components/Data/data';
+import {useState} from 'react'
+
 
 function App() {
+  const [cart , setCart] = useState([]) 
+
+
+  const addToCart = (item) => {
+    setCart([...cart, item])
+  }
+
+
+
   return (
     <div className="App">
       <Router>
@@ -34,7 +52,7 @@ function App() {
           <h1 className="title">Pizza Shack</h1>
         <div className="first">
           <NavLink className="links" exact to='/home'> Home</NavLink>
-          <NavLink className="links" exact to='/cart'><ShoppingCartIcon color="secondary"/></NavLink>
+  <NavLink className="links" exact to='/cart'><ShoppingCartIcon color="secondary"/> </NavLink><div>({cart.length})</div>
         </div>
         </div>
         <div className="secondHeader">
@@ -49,26 +67,26 @@ function App() {
         </div>
         <Switch>
           <Route exact path ='/home'>
-            <LandingPage/>
+            <LandingPage addToCart={addToCart}/>
           </Route>
             <Route exact path ='/pizza'>
-              <Pizza/>
+              <Pizza  addToCart={addToCart}/>
             
             </Route>
             <Route exact path ='/wings'>
-            
+              <Wings addToCart={addToCart}/>
             </Route>
             <Route exact path ='/sides'>
-            
+              <Sides  addToCart={addToCart}/>
             </Route>
             <Route exact path ='/pasta'>
-            
+            <Pasta  addToCart={addToCart}/>
             </Route>
             <Route exact path ='/dessert'>
-            
+              <Desserts  addToCart={addToCart}/>
             </Route>
             <Route exact path ='/drinks'>
-            
+              <Drinks  addToCart={addToCart}/>
             </Route>
             <Route exact path ='/cart'>
             
