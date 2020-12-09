@@ -10,7 +10,7 @@ export default function Wings(props) {
     return(
         <>
         <h1>Wings</h1>
-        <MenuCard props={wings}/>
+        <MenuCard item={wings} addToCart={props.addToCart}/>
         </>
     )
 }

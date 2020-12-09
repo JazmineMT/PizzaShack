@@ -1,6 +1,5 @@
 import React from 'react'
 import {pizzas} from '../Data/data'
-import MenuCard from '../Cards/MenuCard'
 import { BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-dom'
 import PopularPizza from './PopularPizza'
 import CreateYourOwnPizza from './CreateYourOwnPizza'
@@ -18,10 +17,10 @@ export default function Pizza(props){
             </NavBox>
             <Switch>
             <Route exact path ='/popularpizza'>
-                     <PopularPizza/>
+                     <PopularPizza addToCart={props.addToCart}/>
             </Route>
             <Route exact path ='/createpizza'>
-                <CreateYourOwnPizza/>
+                <CreateYourOwnPizza addToCart={props.addToCart}/>
             </Route>
         </Switch>
         </Router>

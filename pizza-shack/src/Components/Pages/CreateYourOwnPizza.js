@@ -127,11 +127,12 @@ export default function CreateYourOwnPizza(props){
             })
             }
 
-            const onClick = evt => {
+            const onClick = (evt )=> {
                 setValues({
                     ...values,
                     price: total
                 })
+                props.addToCart(values)
             }
 
     return(

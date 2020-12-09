@@ -6,7 +6,7 @@ import {deals} from '../Data/data'
 
 export default function LandingPage(props) {
 
-    console.log(deals)
+
     return (
         <>
         <div className="mainPic">
@@ -31,7 +31,7 @@ export default function LandingPage(props) {
                         </div>
                          <div> {deal.price}</div>
                     </div>
-                    <button className="button"> Add to Cart </button>
+                    <button onClick={() => props.addToCart(deal)} className="button"> Add to Cart </button>
 
                 </div>
             ) )}

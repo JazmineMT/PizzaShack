@@ -16,6 +16,14 @@ import {useState} from 'react'
 
 function App() {
   const [cart , setCart] = useState([]) 
+
+
+  const addToCart = (item) => {
+    setCart([...cart, item])
+  }
+
+
+
   return (
     <div className="App">
       <Router>
@@ -59,26 +67,26 @@ function App() {
         </div>
         <Switch>
           <Route exact path ='/home'>
-            <LandingPage/>
+            <LandingPage addToCart={addToCart}/>
           </Route>
             <Route exact path ='/pizza'>
-              <Pizza/>
+              <Pizza  addToCart={addToCart}/>
             
             </Route>
             <Route exact path ='/wings'>
-              <Wings/>
+              <Wings addToCart={addToCart}/>
             </Route>
             <Route exact path ='/sides'>
-              <Sides/>
+              <Sides  addToCart={addToCart}/>
             </Route>
             <Route exact path ='/pasta'>
-            <Pasta/>
+            <Pasta  addToCart={addToCart}/>
             </Route>
             <Route exact path ='/dessert'>
-              <Desserts/>
+              <Desserts  addToCart={addToCart}/>
             </Route>
             <Route exact path ='/drinks'>
-              <Drinks/>
+              <Drinks  addToCart={addToCart}/>
             </Route>
             <Route exact path ='/cart'>
             

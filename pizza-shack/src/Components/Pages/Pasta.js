@@ -6,7 +6,7 @@ export default function Pasta(props){
     return(
         <div>
             <h1>Pasta</h1>
-            <MenuCard props={pastas}/>
+            <MenuCard item={pastas} addToCart={props.addToCart}/>
         </div>
     )
 }

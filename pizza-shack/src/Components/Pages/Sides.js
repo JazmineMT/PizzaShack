@@ -6,7 +6,7 @@ export default function Sides(props){
     return(
         <div>
             <h1>Sides</h1>
-            <MenuCard props={sides}/>
+            <MenuCard item={sides} addToCart={props.addToCart}/>
         </div>
     )
 }

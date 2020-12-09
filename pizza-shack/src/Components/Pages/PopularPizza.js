@@ -5,7 +5,7 @@ import MenuCard from '../Cards/MenuCard'
 export default function PopularPizza(props){
     return(
         <div>
-            <MenuCard props={pizzas}/>
+            <MenuCard  item={pizzas} addToCart={props.addToCart}/>
         </div>
     )
 }

@@ -6,7 +6,7 @@ export default function Drinks(props){
     return(
         <div>
             <h1>Drinks</h1>
-            <MenuCard props={drinks}/>
+            <MenuCard item={drinks} addToCart={props.addToCart}/>
         </div>
     )
 }
