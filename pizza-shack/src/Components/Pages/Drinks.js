@@ -1,0 +1,12 @@
+import React from 'react'
+import {drinks} from '../Data/data'
+import MenuCard from '../Cards/MenuCard'
+
+export default function Drinks(props){
+    return(
+        <div>
+            <h1>Drinks</h1>
+            <MenuCard props={drinks}/>
+        </div>
+    )
+}
