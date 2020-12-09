@@ -7,6 +7,7 @@ import FAQs from './Components/Pages/FAQs'
 import AboutUs from './Components/Pages/AboutUs'
 import Pizza from './Components/Pages/Pizza'
 import Wings from './Components/Pages/Wings'
+import Register from './Components/Pages/Register'
 import Pasta from './Components/Pages/Pasta'
 import Drinks from './Components/Pages/Drinks'
 import Deals from './Components/Pages/Deals'
@@ -90,6 +91,9 @@ function App() {
             <Route exact path ='/drinks'>
               <Drinks  addToCart={addToCart}/>
             </Route>
+            <Route exact path ='/deals'>
+              <Deals/>
+            </Route>
             <Route exact path ='/cart'>
             
             </Route>
@@ -97,6 +101,7 @@ function App() {
             
             </Route>
             <Route exact path ='/register'>
+              <Register/>
             
             </Route>
             <Route exact path ='/aboutUs'>

@@ -314,3 +314,22 @@ footer{
   padding: 5%;
 }
 
+.thin {
+height: .5px;
+border: 0;
+color: #333;
+background-color: #333;
+width: 70%;
+text-align: center;
+margin: 1%;
+}
+
+
+.regTitle{
+  margin: 2%;
+}
+
+.buttonBox .button{
+  width: 40%;
+  text-align: center;
+}
