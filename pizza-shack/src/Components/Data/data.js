@@ -7,6 +7,29 @@ import pasta from './pics/pasta.jpg'
 import dessert from './pics/dessert.jpg'
 import side from './pics/sides.jpg'
 import pizza from './pics/pizza.jpg'
+import sweet from './pics/sweet.jpg'
+import bbq from './pics/bbqjpg.jpg'
+import lemon from './pics/lemon.jpg'
+import spicy from './pics/spicy.jpg'
+import seasme from './pics/seasme.jpg'
+import coke from './pics/coke.jpg'
+import sprite from './pics/sprite.jpg'
+import wine from './pics/red.jpg'
+import beer from './pics/beer.jpg'
+import frys from './pics/frys.jpg'
+import poppers from './pics/poppers.jpg'
+import alfredo from './pics/alfredo.jpg'
+import scampi from './pics/scampi.jpg'
+import cookies from './pics/cookies.jpg'
+import lava from './pics/lava.jpg'
+import cheese from './pics/cheese.jpg'
+import pineapple from './pics/pineapple.jpg'
+import pep from './pics/pep.jpg'
+import sausage from './pics/sausage.jpg'
+import bbqP from './pics/BBQ.jpg'
+import veggie from './pics/veggie.jpg'
+
+
 
 
 export const deals = [
@@ -38,44 +61,44 @@ export const wings = [
     {
         id: 1,
         name: 'Buffalo Wings',
-        description: 'Nothing like  1 dozen orignal style bufflo wing',
+        description: 'One dozen wings',
         price: 10.99,
         picURL: wing
     },
     {
         id: 2,
-        name: 'Buffalo Wings',
-        description: 'Nothing like  1 dozen orignal style bufflo wing',
+        name: 'Sweet and Spic Wings ',
+        description: 'One dozen wings',
         price: 10.99,
-        picURL: wing
+        picURL: sweet
     },
     {
         id: 3,
-        name: 'Buffalo Wings',
-        description: 'Nothing like  1 dozen orignal style bufflo wing',
+        name: 'BBQ Wings',
+        description: ' One dozen wings',
         price: 10.99,
-        picURL: wing
+        picURL: bbq
     },
     {
         id: 4,
-        name: 'Buffalo Wings',
-        description: 'Nothing like  1 dozen orignal style bufflo wing',
+        name: 'Lemon Pepper Wings',
+        description: ' One dozen wings',
         price: 10.99,
-        picURL: wing
+        picURL: lemon
     },
     {
         id: 5,
-        name: 'Buffalo Wings',
-        description: 'Nothing like  1 dozen orignal style bufflo wing',
+        name: "General Tso's Wings ",
+        description: 'One dozen wings',
         price: 10.99,
-        picURL: wing
+        picURL: spicy
     },
     {
         id: 6,
-        name: 'Buffalo Wings',
-        description: 'Nothing like  1 dozen orignal style bufflo wing',
+        name: 'Seasame Wings',
+        description: 'One dozen wings',
         price: 10.99,
-        picURL: wing
+        picURL: seasme
     },
 ]
 
@@ -90,39 +113,33 @@ export const drinks = [
     },
     {
         id: 2,
-        name: 'Pepsi',
+        name: 'Coke',
         description: 'One 2-liter to wash down your tasy treats ',
         price: 4.99,
-        picURL: drink
+        picURL: coke
     },
     {
         id: 3,
-        name: 'Pepsi',
+        name: 'Sprite',
         description: 'One 2-liter to wash down your tasy treats ',
         price: 4.99,
-        picURL: drink
+        picURL: sprite
     },
     {
         id: 4,
-        name: 'Pepsi',
-        description: 'One 2-liter to wash down your tasy treats ',
+        name: 'Blue Moon',
+        description: 'One can of beer wash down your tasy treats ',
         price: 4.99,
-        picURL: drink
+        picURL: beer
     },
     {
         id: 5,
-        name: 'Pepsi',
-        description: 'One 2-liter to wash down your tasy treats ',
+        name: 'House Wine',
+        description: 'One can of House Red Wine blend',
         price: 4.99,
-        picURL: drink
+        picURL: wine
     },
-    {
-        id: 6,
-        name: 'Pepsi',
-        description: 'One 2-liter to wash down your tasy treats ',
-        price: 4.99,
-        picURL: drink
-    },
+
 
 ]
 
@@ -136,24 +153,17 @@ export const pastas = [
     },
     {
         id: 2,
-        name: 'Spagetti with Meat Sauce',
+        name: 'Creamy Chicken Alfredo',
         description: 'A classic Italian meal',
         price: 14.99,
-        picURL: pasta
+        picURL: alfredo
     },
     {
         id: 3,
-        name: 'Spagetti with Meat Sauce',
+        name: 'Savory Shrimp Scampi',
         description: 'A classic Italian meal',
         price: 14.99,
-        picURL: pasta
-    },
-    {
-        id: 4,
-        name: 'Spagetti with Meat Sauce',
-        description: 'A classic Italian meal',
-        price: 14.99,
-        picURL: pasta
+        picURL: scampi
     },
 
 
@@ -169,39 +179,19 @@ export const sides = [
     },
     {
         id: 2,
-        name: 'Garlic Bread',
+        name: 'Frys',
         description: 'What is pizza without a side??',
         price: 10.99,
-        picURL: side
+        picURL: frys
     },
     {
         id: 3,
-        name: 'Garlic Bread',
+        name: 'Jalepeno Poppers',
         description: 'What is pizza without a side??',
         price: 10.99,
-        picURL: side
+        picURL: poppers
     },
-    {
-        id: 4,
-        name: 'Garlic Bread',
-        description: 'What is pizza without a side??',
-        price: 10.99,
-        picURL: side
-    },
-    {
-        id: 5,
-        name: 'Garlic Bread',
-        description: 'What is pizza without a side??',
-        price: 10.99,
-        picURL: side
-    },
-    {
-        id: 6,
-        name: 'Garlic Bread',
-        description: 'What is pizza without a side??',
-        price: 10.99,
-        picURL: side
-    },
+
 
 ]
 
@@ -216,17 +206,17 @@ export const dessrts = [
     },
     {
         id: 2,
-        name: 'Brownies',
-        description: 'You deserve to treat yourself to 6 delicious brownies',
+        name: 'Chocolate-Chip Cookies',
+        description: 'You deserve to treat yourself to 6 delicious cookies',
         price: 8.99,
-        picURL: dessert
+        picURL: cookies
     },
     {
         id: 3,
-        name: 'Brownies',
-        description: 'You deserve to treat yourself to 6 delicious brownies',
+        name: 'Lava Cake',
+        description: 'You deserve to treat yourself with a delicous lava cake',
         price: 8.99,
-        picURL: dessert
+        picURL: lava
     },
 ]
 
@@ -235,43 +225,43 @@ export const pizzas = [
         id: 1,
         name: 'Large Pepperoni Pizza',
         description: 'You can never go wrong with our classic pepperoni and cheese pizza',
-        price: 13.99,
-        picURL: pizza
+        price: 20.99,
+        picURL: pep
     },
     {
         id: 2,
-        name: 'Large Pepperoni Pizza',
+        name: 'Meduim Ham and Pineapple',
         description: 'You can never go wrong with our classic pepperoni and cheese pizza',
-        price: 13.99,
-        picURL: pizza
+        price: 15.99,
+        picURL: pineapple
     },
     {
         id: 3,
-        name: 'Large Pepperoni Pizza',
+        name: 'Small Veggie Pizza',
         description: 'You can never go wrong with our classic pepperoni and cheese pizza',
-        price: 13.99,
-        picURL: pizza
+        price: 10.99,
+        picURL: veggie
     },
     {
         id: 4,
-        name: 'Large Pepperoni Pizza',
+        name: 'Large BBQ Chicken Pizza',
         description: 'You can never go wrong with our classic pepperoni and cheese pizza',
-        price: 13.99,
-        picURL: pizza
+        price: 20.99,
+        picURL: bbqP
     },
     {
         id: 5,
-        name: 'Large Pepperoni Pizza',
+        name: 'Large Sausage Pizza',
         description: 'You can never go wrong with our classic pepperoni and cheese pizza',
         price: 13.99,
-        picURL: pizza
+        picURL: sausage
     },
     {
         id: 6,
-        name: 'Large Pepperoni Pizza',
+        name: 'Large Cheese Pizza',
         description: 'You can never go wrong with our classic pepperoni and cheese pizza',
-        price: 13.99,
-        picURL: pizza
+        price: 20.00,
+        picURL: cheese
     },
 
 ]

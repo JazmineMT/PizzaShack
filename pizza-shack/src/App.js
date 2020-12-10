@@ -27,6 +27,13 @@ function App() {
     setCart([...cart, item])
   }
 
+  const removeFromCart = (item) => {
+    setCart(cart.filter((i) => i.name !== item.name));
+  };
+  const removeSpecialFromCart = (item) => {
+    setCart(cart.filter((i) => i.date !== item.date));
+  };
+
 
 
   return (
@@ -97,7 +104,7 @@ function App() {
               <Deals addToCart={addToCart}/>
             </Route>
             <Route exact path ='/cart'>
-              <ShoppingCart order={cart}/>
+              <ShoppingCart  removeSpecail ={removeSpecialFromCart} remove={removeFromCart} order={cart}/>
             
             </Route>
             <Route exact path ='/signin'>

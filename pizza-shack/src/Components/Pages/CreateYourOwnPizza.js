@@ -18,6 +18,7 @@ const initailFormValues = {
     size: '',
     sauce:'',
     crust: '',
+    date: new Date(),
     price: 0 ,
     cheese:{
         extraCheese: false
@@ -138,6 +139,7 @@ export default function CreateYourOwnPizza(props){
                   size: values.size,
                   sauce: values.sauce,
                   crust: values.crust,
+                  date: Date.now(),
                   price: total ,
                   cheese:Object.keys(values.cheese)
                   .filter(extra =>(values.cheese[extra] === true))

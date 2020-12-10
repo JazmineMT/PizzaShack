@@ -333,3 +333,13 @@ margin: 1%;
   width: 40%;
   text-align: center;
 }
+
+.btnBox .button{
+  width: 50%;
+  margin: 3%;
+
+}
+
+.remove{
+  padding: 10%;
+}
