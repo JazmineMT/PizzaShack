@@ -10,6 +10,8 @@ export default function ShoppingCart(props){
     return (
         <Container>
             <ItemsContainer>
+
+                <ShoppingCartItem items={props.order}/>
              
             </ItemsContainer>
             <Last>

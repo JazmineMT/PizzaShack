@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 
 export const Container = styled.div `
+width: 90%;
 
 
 `
@@ -25,8 +26,12 @@ export const Buttons = styled.div `
 `
 
 export const Item = styled.div `
+width: 80%;
 
 `
 export const IMG = styled.img `
+width: 300px;
+height: 300px;
+
 
 `

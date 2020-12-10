@@ -60,6 +60,8 @@ export default function CreateYourOwnPizza(props){
     const [values, setValues] = useState(initailFormValues);
     const [total, setTotal] = useState(0);
     const item = [values, total]
+
+    
     const handleChange = (evt) => {
         const {name , value} = evt.target
   
@@ -130,22 +132,23 @@ export default function CreateYourOwnPizza(props){
 
             const onClick = (evt )=> {
               evt.preventDefault()
-              const {name , value} = evt.target
-              setValues({
-                ...values,
-                [name]: value,
-                
-              })
-                AddToCart()
-               
-              
-            }
-
-            const AddToCart = () => {
-              console.log(values)
-              props.addToCart(values)
+              props.addToCart(
+                {
+                  name: 'specail',
+                  size: values.size,
+                  sauce: values.sauce,
+                  crust: values.crust,
+                  price: total ,
+                  cheese:Object.keys(values.cheese)
+                  .filter(extra =>(values.cheese[extra] === true))
+                ,
+                  toppings: Object.keys(values.toppings)
+                  .filter(toppingName =>(values.toppings[toppingName] === true))
+                },
+              )
               setValues(initailFormValues)
               setTotal(0)
+              
             }
 
     return(
@@ -187,7 +190,7 @@ export default function CreateYourOwnPizza(props){
                     <RadioGroup  aria-label="gender" name="sauce" value={values.sauce} onChange={handleChange} >
                     <RadioBox>
                     <FormControlLabel value="Marinara" control={<Radio />} label="Marinara" />
-                    <FormControlLabel value="White Sauce" control={<Radio />} label="White Sauce" />
+                    <FormControlLabel value="White" control={<Radio />} label="White" />
                     <FormControlLabel value="BBQ" control={<Radio />} label="BBQ" />
                     <FormControlLabel value="Buffalo" control={<Radio />} label="Buffalo" />
                     </RadioBox>
