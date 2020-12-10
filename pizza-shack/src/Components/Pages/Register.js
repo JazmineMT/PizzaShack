@@ -1,6 +1,6 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
-import {Header, LoginInfo, YourInfo, Container, TextFieldBox2, Border, Container2, ButtonBox} from '../styles/RegisterStyles'
+import {Header, AccountInfo, YourInfo, Container, TextFieldBox, Border, Container2, ButtonBox} from '../styles/RegisterStyles'
 import LocalPizzaIcon from '@material-ui/icons/LocalPizza';
 import IconButton from '@material-ui/core/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -12,13 +12,23 @@ import { makeStyles } from '@material-ui/core/styles';
 import FilledInput from '@material-ui/core/FilledInput';
 
 const initailFormValues = {
+    firstname:'',
+    lastname:'',
     email: '',
+    confirm: '',
+    phone: '',
+    zipCode: '',
     password:'',
     showPassword: false,
   } 
 
   const initailFormErrors = {
+    firstName:'',
+    lastName:'',
     email: '',
+    phone:'',
+    confirm: '',
+    zipCode: '',
     password:'',
     ShowPassword: false
   }
@@ -32,7 +42,7 @@ const initailFormValues = {
 
 
 
-export default function SignIn(props){
+export default function Register(props){
 const [values , setValues] = useState(initailFormValues)
 const [formErrors , setFormErrors] = useState(initailFormErrors)
 const classes = useStyles();
@@ -59,11 +69,13 @@ const classes = useStyles();
         <Container>
             <Container2>
             <Header>
-                    <h1> Sign In </h1>
-                    <h3><LocalPizzaIcon/> Sign in to your Shack Savings Account</h3>
+                    <h1> Create Account</h1>
+                    <h3><LocalPizzaIcon/> Earn Free Pizza with Shack Savings</h3>
             </Header>
-            <LoginInfo>
-                    <TextFieldBox2>                   
+            <AccountInfo>
+                    <Border> <h3>Account Information</h3> <hr className='thin'/> </Border>
+                    <TextFieldBox>   
+                        <h3 className='regTitle'>Email</h3>                     
                     <TextField
                         className={classes.textBox}
                         type='email'
@@ -75,7 +87,7 @@ const classes = useStyles();
                         placeholder="Email"
                         fullWidth = {true}
                         />
-
+                        <h3 className='regTitle'> Password</h3>
                         <FilledInput
                         className={classes.textBox}
                         placeholder='Password '
@@ -99,11 +111,65 @@ const classes = useStyles();
                             }
                         labelWidth={70}
                         />
-                    </TextFieldBox2>
+                    </TextFieldBox>
 
               
 
-            </LoginInfo>
+            </AccountInfo>
+            <YourInfo>
+            <Border> <h3>Your Information</h3><hr className='thin'/> </Border>
+            <TextFieldBox>   
+                        <h3  className='regTitle'>First Name </h3>                     
+                    <TextField
+                        className={classes.textBox}
+                        type='text'
+                        name='firstname'
+                        value={values.firstname}
+                        onChange={handleChange}
+                        helperText={formErrors.firstName}
+                        variant='filled'
+                        placeholder="Jane"
+                        fullWidth = {true}
+                        />
+                        <h3  className='regTitle'>Last Name</h3>
+                    <TextField
+                        className={classes.textBox}
+                        type='text'
+                        name='lastname'
+                        value={values.lastname}
+                        onChange={handleChange}
+                        helperText={formErrors.lastName}
+                        variant='filled'
+                        placeholder="Dough"
+                        fullWidth = {true}
+                        />
+                        <h3  className='regTitle'>Phone</h3>
+                    <TextField
+                        className={classes.textBox}
+                        type='text'
+                        name='phone'
+                        value={values.phone}
+                        onChange={handleChange}
+                        helperText={formErrors.phone}
+                        variant='filled'
+                        placeholder="(XXX)-XXX-XXXX"
+                        fullWidth = {true}
+                        />
+                    <h3  className='regTitle'>Zip Code</h3>
+                    <TextField
+                        className={classes.textBox}
+                        type='text'
+                        name='zipCode'
+                        value={values.zipCode}
+                        onChange={handleChange}
+                        helperText={formErrors.zipCode}
+                        variant='filled'
+                        placeholder="XXXXX"
+                        fullWidth = {true}
+                        />
+                    </TextFieldBox>
+
+            </YourInfo>
             <ButtonBox className='buttonBox'>
                 <buton className='button'> Create Account</buton>
             </ButtonBox>

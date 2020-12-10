@@ -14,6 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { FormHelperText } from '@material-ui/core';
 
 const initailFormValues = {
+    name: 'specail',
     size: '',
     sauce:'',
     crust: '',
@@ -58,7 +59,7 @@ export default function CreateYourOwnPizza(props){
     const classes = useStyles();
     const [values, setValues] = useState(initailFormValues);
     const [total, setTotal] = useState(0);
-
+    const item = [values, total]
     const handleChange = (evt) => {
         const {name , value} = evt.target
   
@@ -128,11 +129,23 @@ export default function CreateYourOwnPizza(props){
             }
 
             const onClick = (evt )=> {
-                setValues({
-                    ...values,
-                    price: total
-                })
-                props.addToCart(values)
+              evt.preventDefault()
+              const {name , value} = evt.target
+              setValues({
+                ...values,
+                [name]: value,
+                
+              })
+                AddToCart()
+               
+              
+            }
+
+            const AddToCart = () => {
+              console.log(values)
+              props.addToCart(values)
+              setValues(initailFormValues)
+              setTotal(0)
             }
 
     return(
@@ -196,7 +209,7 @@ export default function CreateYourOwnPizza(props){
          <ToppingsBox>
          <FormControlLabel
          className={classes.toppings}
-        control={<Checkbox  checked={values.toppings.mushroom} onChange={onCheckBoxChange} name="mushrooms" />}
+        control={<Checkbox  checked={values.toppings.mushroom} onChange={onCheckBoxChange} name="mushroom" />}
         label="Mushrooms"
       />
                <FormControlLabel
@@ -238,7 +251,10 @@ export default function CreateYourOwnPizza(props){
          </ToppingBox>
          <ButtonAndTotal>   
              <Box>     
-              <button  onClick={onClick} className="button"> Add to Cart </button>
+              <button
+                name='price'
+                value={total}
+              onClick={onClick} className="button"> Add to Cart </button>
               </Box>
               <Box>
                 <h3> Total ${total.toFixed(2)}</h3>

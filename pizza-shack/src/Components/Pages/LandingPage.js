@@ -29,7 +29,7 @@ export default function LandingPage(props) {
                          <h1>{deal.name}</h1>
                             <p>{deal.description}</p>
                         </div>
-                         <div> {deal.price}</div>
+                         <div> ${deal.price}</div>
                     </div>
                     <button onClick={() => props.addToCart(deal)} className="button"> Add to Cart </button>
 

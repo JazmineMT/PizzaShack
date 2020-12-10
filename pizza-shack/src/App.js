@@ -3,8 +3,13 @@ import {Dropdown, Navbar} from 'react-bootstrap'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import LandingPage from './Components/Pages/LandingPage'
+import FAQs from './Components/Pages/FAQs'
+import AboutUs from './Components/Pages/AboutUs'
 import Pizza from './Components/Pages/Pizza'
 import Wings from './Components/Pages/Wings'
+import ShoppingCart from './Components/Pages/ShoppingCart'
+import Register from './Components/Pages/Register'
+import SignIn from './Components/Pages/SignIn'
 import Pasta from './Components/Pages/Pasta'
 import Drinks from './Components/Pages/Drinks'
 import Deals from './Components/Pages/Deals'
@@ -88,20 +93,26 @@ function App() {
             <Route exact path ='/drinks'>
               <Drinks  addToCart={addToCart}/>
             </Route>
+            <Route exact path ='/deals'>
+              <Deals addToCart={addToCart}/>
+            </Route>
             <Route exact path ='/cart'>
+              <ShoppingCart order={cart}/>
             
             </Route>
             <Route exact path ='/signin'>
+              <SignIn/>
             
             </Route>
             <Route exact path ='/register'>
+              <Register/>
             
             </Route>
             <Route exact path ='/aboutUs'>
-            
+              <AboutUs/>
             </Route>
             <Route exact path ='/FAQs'>
-            
+                <FAQs/>
             </Route>
         </Switch>
         <footer className='footer'>
