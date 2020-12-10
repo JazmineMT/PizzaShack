@@ -7,6 +7,7 @@ import FAQs from './Components/Pages/FAQs'
 import AboutUs from './Components/Pages/AboutUs'
 import Pizza from './Components/Pages/Pizza'
 import Wings from './Components/Pages/Wings'
+import ShoppingCart from './Components/Pages/ShoppingCart'
 import Register from './Components/Pages/Register'
 import SignIn from './Components/Pages/SignIn'
 import Pasta from './Components/Pages/Pasta'
@@ -93,9 +94,10 @@ function App() {
               <Drinks  addToCart={addToCart}/>
             </Route>
             <Route exact path ='/deals'>
-              <Deals/>
+              <Deals addToCart={addToCart}/>
             </Route>
             <Route exact path ='/cart'>
+              <ShoppingCart order={cart}/>
             
             </Route>
             <Route exact path ='/signin'>
