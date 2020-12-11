@@ -10,6 +10,7 @@ import Wings from './Components/Pages/Wings'
 import ShoppingCart from './Components/Pages/ShoppingCart'
 import Register from './Components/Pages/Register'
 import SignIn from './Components/Pages/SignIn'
+import LocationFinder from './Components/Pages/LocationFinder'
 import Pasta from './Components/Pages/Pasta'
 import Drinks from './Components/Pages/Drinks'
 import Deals from './Components/Pages/Deals'
@@ -26,6 +27,13 @@ function App() {
   const addToCart = (item) => {
     setCart([...cart, item])
   }
+
+  const removeFromCart = (item) => {
+    setCart(cart.filter((i) => i.name !== item.name));
+  };
+  const removeSpecialFromCart = (item) => {
+    setCart(cart.filter((i) => i.date !== item.date));
+  };
 
 
 
@@ -50,6 +58,7 @@ function App() {
                 <Dropdown.Item className="dropdown" >  <NavLink className='link' exact to='/pasta'>Pasta</NavLink>  </Dropdown.Item>
                 <Dropdown.Item className="dropdown" >  <NavLink className='link' exact to='/dessert'>Dessert</NavLink>  </Dropdown.Item>
                 <Dropdown.Item className="dropdown">  <NavLink className='link' exact to='/drinks'>Drinks</NavLink>  </Dropdown.Item>
+                <Dropdown.Item className="dropdown">  <NavLink className='link' exact to='/locationfinder'> Pizza Shack Finder</NavLink>  </Dropdown.Item>
               </Dropdown.Menu>
           </Dropdown>
           <NavLink className="links" exact to='/deals'> Deals</NavLink>
@@ -97,8 +106,11 @@ function App() {
               <Deals addToCart={addToCart}/>
             </Route>
             <Route exact path ='/cart'>
-              <ShoppingCart order={cart}/>
+              <ShoppingCart  removeSpecail ={removeSpecialFromCart} remove={removeFromCart} order={cart}/>
             
+            </Route>
+            <Route exact path ='/locationfinder'>
+                <LocationFinder/>
             </Route>
             <Route exact path ='/signin'>
               <SignIn/>
