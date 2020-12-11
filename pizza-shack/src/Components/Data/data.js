@@ -31,7 +31,72 @@ import veggie from './pics/veggie.jpg'
 
 
 
+export const places = [
+    {
+        id: 1,
+        name: 'Pizza Shack',
+        streetAddress: '17246 Redmond Way',
+        stateCity:'Redmond, WA',
+        zipCode: '98052',
+        phone: '(425)820,8323',
+        lat: 47.67260895788658, 
+        long: -122.11006676931301
+    },
+    {
+        id: 2,
+        name: 'Pizza Shack',
+        streetAddress: '15945 Redmond Way',
+        stateCity:'Redmond, WA',
+        zipCode: '98052',
+        phone: '(425)820,8323',
+        lat: 47.67518079293131, 
+        long: -122.12740456836242
+    },
+    {
+        id: 3,
+        name: 'Pizza Shack',
+        streetAddress: '170 Lake St S',
+        stateCity:'Kirkland, WA',
+        zipCode: '98033',
+        phone: '(425)820,8323',
+        lat: 47.677579730818195, 
+        long: -122.20704556259915
+    },
+    {
+        id: 4,
+        name: 'Pizza Shack',
+        streetAddress: '400 Broad St',
+        stateCity:'Seattle, WA',
+        zipCode: '98033',
+        phone: '(425)820,8323',
+        lat: 47.6219024922197, 
+        long: -122.34868353538344
+    },
+    {
+        id: 5,
+        name: 'Pizza Shack',
+        streetAddress: '1100 9th Ave',
+        stateCity:'Seattle, WA',
+        zipCode: '98101',
+        phone: '(425)820,8323',
+        lat: 47.6115460295262, 
+        long: -122.32774084775461
+    },
+    {
+        id: 6,
+        name: 'Pizza Shack',
+        streetAddress: '2701 Utah Ave S',
+        stateCity:'Seattle, WA',
+        zipCode: '98134',
+        phone: '(425)820,8323',
+        lat: 47.58121699433041, 
+        long: -122.33598059375406
+    },
 
+
+
+
+]
 export const deals = [
     {
         id: 1,
