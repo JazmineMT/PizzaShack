@@ -31,7 +31,85 @@ import veggie from './pics/veggie.jpg'
 
 
 
+export const places = [
+    {
+        id: 1,
+        name: 'Pizza Shack',
+        fullAdd: '17246 Redmond Way Redmond, WA 98052',
+        streetAddress: '17246 Redmond Way',
+        stateCity:'Redmond, WA',
+        zipCode: '98052',
+        phone: '(425)820,8323',
+        lat: 47.67260895788658, 
+        long: -122.11006676931301,
+        hours: '10:30am - 9:00pm'
+    },
+    {
+        id: 2,
+        name: 'Pizza Shack',
+        fullAdd: '15945 Redmond Way Redmond, WA 98052',
+        streetAddress: '15945 Redmond Way',
+        stateCity:'Redmond, WA',
+        zipCode: '98052',
+        phone: '(425)820,8323',
+        lat: 47.67518079293131, 
+        long: -122.12740456836242,
+        hours: '10:30am - 9:00pm'
+    },
+    {
+        id: 3,
+        name: 'Pizza Shack',
+        fullAdd: '170 Lake St S Kirkland, WA 98033',
+        streetAddress: '170 Lake St S',
+        stateCity:'Kirkland, WA',
+        zipCode: '98033',
+        phone: '(425)820,8323',
+        lat: 47.677579730818195, 
+        long: -122.20704556259915,
+        hours: '10:30am - 9:00pm'
+    },
+    {
+        id: 4,
+        name: 'Pizza Shack',
+        fullAdd: '500 Broad St Seattle,WA 98109',
+        streetAddress: '400 Broad St',
+        stateCity:'Seattle, WA',
+        zipCode: '98109',
+        phone: '(425)820,8323',
+        lat: 47.6219024922197, 
+        long: -122.34868353538344,
+        hours: '10:30am - 9:00pm'
+    },
+    {
+        id: 5,
+        name: 'Pizza Shack',
+        fullAdd: '1100 9th Ave Seattle, WA 98101',
+        streetAddress: '1100 9th Ave',
+        stateCity:'Seattle, WA',
+        zipCode: '98101',
+        phone: '(425)820,8323',
+        lat: 47.6115460295262, 
+        long: -122.32774084775461,
+        hours: '10:30am - 9:00pm'
+    },
+    {
+        id: 6,
+        name: 'Pizza Shack',
+        fullAdd: '2701 Utah Ave S Seattle, WA 98134',
+        streetAddress: '2701 Utah Ave S',
+        stateCity:'Seattle, WA',
+        zipCode: '98134',
+        phone: '(425)820,8323',
+        lat: 47.58121699433041, 
+        long: -122.33598059375406,
+        hours: '10:30am - 9:00pm'
 
+    },
+
+
+
+
+]
 export const deals = [
     {
         id: 1,

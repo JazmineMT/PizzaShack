@@ -1,9 +1,16 @@
-import React from 'react'
-import {useState, useEffect} from 'react'
-import {FinderBox, SearchBox, MapBox} from '../styles/LocationStyles'
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import {useState,  useRef , useEffect} from 'react'
+import {FinderBox, SearchBox, MapBox, PlacesBox} from '../styles/LocationStyles'
 import {TextField , Button, FormControl} from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
-import GoogleMapReact from 'google-map-react';
+import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import {places} from '../Data/data'
+import LocationFinderCard from '../Cards/LocationFinderCard'
+import { red } from '@material-ui/core/colors'
+
+ 
 
 const useStyles = makeStyles((theme) => ({
     textBox: {
@@ -15,39 +22,97 @@ const useStyles = makeStyles((theme) => ({
         width: '30%',
     }
   }));
+const location = {latitude: 39.8283, longitude: -98.5556,}
 
-const initailLocation = {
-
-     lat: 47.620422,
-     lng: -122.349358
-   
-}
-
-
+mapboxgl.accessToken = 'pk.eyJ1IjoiamF6bWluZW10IiwiYSI6ImNraWpwcHdlZDAyOGsyeXA3bnM5anM2Ym8ifQ.C09jSGF7t0vwqHnQWjoqMA';
 
 export default function LocationFinder(props) {
 const [search  , setSearch] = useState('')
-const [location  , setLocation] = useState(initailLocation)
+const [ filter , SetFilter] = useState(places)
 const classes = useStyles();
+const mapContainerRef = useRef(null);
+
+        useEffect(() => {
+    const map = new mapboxgl.Map({
+      container: mapContainerRef.current,
+      // See style options here: https://docs.mapbox.com/api/maps/#styles
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [location.longitude, location.latitude],
+      zoom: 3,
+	});
+		map.on('load', async () => {
+			// iterate through the feature collection and append marker to the map for each feature
+			places.map(result => {
+			console.log(result)
+			
+			var popup = new mapboxgl.Popup({offset: 15, className: 'my-class'}).setHTML(
+				'<h1>'+ result.name + '</h1><h4>' + result.fullAdd + '</h4> <h4>' + result.phone + '</h4> <h4>' + result.hours + '</h4>' 
+			)
+
+			var marker = new mapboxgl.Marker({
+				color: 'red',
+				draggable: false
+				}).setLngLat([result.long,result.lat])
+				.setPopup(popup) // sets a popup on this marker
+				.addTo(map);
+			})
+		})
+        // add navigation control (the +/- zoom buttons)
+        map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+
+        // clean up on unmount
+		return () => map.remove();
+		
+		
+      }, []);
+
 
     const getLoc = async (e) => {
-        e.preventDefault()
-        const url = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAa6KpgYLtTzRPT8KHEjTMyi3qXaZ-eDJo&components=postal_code:${search}`
+		e.preventDefault()
+        const url = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAa6KpgYLtTzRPT8KHEjTMyi3qXaZ-eDJo&address=${search}`
         try{
          const res = await fetch(url)
          const data = await res.json()
-         const results = data.results 
+		 const results = data.results 
          results.map(item => {
-             setLocation({
+			const map = new mapboxgl.Map({
+				container: mapContainerRef.current,
+				// See style options here: https://docs.mapbox.com/api/maps/#styles
+				style: 'mapbox://styles/mapbox/streets-v11',
+				center: [item.geometry.location.lng, item.geometry.location.lat],
+				zoom: 10,
+			  });
+			  map.on('load', async () => {
+				// iterate through the feature collection and append marker to the map for each feature
+				places.map(result => {
+					var popup = new mapboxgl.Popup({offset: 15, className: 'my-class'}).setHTML(
+						'<h1>'+ result.name + '</h1><h4>' + result.fullAdd + '</h4> <h4>' + result.phone + '</h4> <h4>' + result.hours + '</h4>' 
+					)
+		
+				var marker = new mapboxgl.Marker({
+					color: 'red',
+					draggable: false
+					}).setLngLat([result.long,result.lat])
+					.setPopup(popup) // sets a popup on this marker
+					.addTo(map);
+				})
+			})
+				  // add navigation control (the +/- zoom buttons)
+				  map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+		  
+				  // clean up on unmount
+				  return () => map.remove();
+		 })
+		if(search.length === 5){
+			const filteredZip = places.filter((place) => place.zipCode == search )
+			SetFilter(filteredZip)
+		}else {
+			const filteredStateCity = places.filter((place) => place.stateCity == search )
+			SetFilter(filteredStateCity)
+		}
 
-                lat: item.geometry.location.Lat,
-                lng: item.geometry.location.Lng
-              
-           })
-         })
-         
-
-
+		 setSearch('')
+		
 
         }catch(err){
             console.log(err)
@@ -55,11 +120,13 @@ const classes = useStyles();
 
     }
 
+
     const handleChange = (evt) => {
         const {name , value} = evt.target
 
         setSearch(value);
       };
+ 
 
 
     return (
@@ -73,7 +140,7 @@ const classes = useStyles();
                         value={search}
                         onChange={handleChange}
                         variant='outlined'
-                        placeholder="Zip Code"
+                        placeholder="Enter City,State or Zip Code"
                         fullWidth = {true}
              />
              <button onClick={getLoc} className='button' > Search </button>
@@ -81,17 +148,20 @@ const classes = useStyles();
    
 
             </SearchBox>
-            <MapBox>
-            <GoogleMapReact
-            bootstrapURLKeys={{ key: 'AIzaSyAa6KpgYLtTzRPT8KHEjTMyi3qXaZ-eDJo' }}
-                defaultCenter={location}
-                defaultZoom={15}
+            <MapBox >
+            <div className="mapContainer" ref={mapContainerRef}>
 
-                
-        >
-        </GoogleMapReact>
-
+			</div>
             </MapBox>
+			<PlacesBox>
+					<PlacesBox>
+				{filter.map(shack => (
+					<LocationFinderCard places={shack}/>
+				))}
+				</PlacesBox>
+	
+				
+			</PlacesBox>
         </FinderBox>
     )
 }
