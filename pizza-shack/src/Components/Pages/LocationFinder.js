@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import {useState,  useRef , useEffect} from 'react'
-import {FinderBox, SearchBox, MapBox} from '../styles/LocationStyles'
+import {FinderBox, SearchBox, MapBox, PlacesBox} from '../styles/LocationStyles'
 import {TextField , Button, FormControl} from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import {places} from '../Data/data'
-import LocalPizzaIcon from '@material-ui/icons/LocalPizza';
+import LocationFinderCard from '../Cards/LocationFinderCard'
 import { red } from '@material-ui/core/colors'
 
  
@@ -22,19 +22,13 @@ const useStyles = makeStyles((theme) => ({
         width: '30%',
     }
   }));
-
-const initailLocation = {
-
-     lat: 47.620422,
-     lng: -122.349358
-   
-}
+const location = {latitude: 39.8283, longitude: -98.5556,}
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiamF6bWluZW10IiwiYSI6ImNraWpwcHdlZDAyOGsyeXA3bnM5anM2Ym8ifQ.C09jSGF7t0vwqHnQWjoqMA';
 
 export default function LocationFinder(props) {
 const [search  , setSearch] = useState('')
-const [location  , setLocation] = useState({latitude: 39.8283, longitude: -98.5556,})
+const [ filter , SetFilter] = useState(places)
 const classes = useStyles();
 const mapContainerRef = useRef(null);
 
@@ -86,7 +80,6 @@ const mapContainerRef = useRef(null);
 			  map.on('load', async () => {
 				// iterate through the feature collection and append marker to the map for each feature
 				places.map(result => {
-				console.log(result)
 	
 				var marker = new mapboxgl.Marker({
 					color: 'red',
@@ -101,8 +94,16 @@ const mapContainerRef = useRef(null);
 				  // clean up on unmount
 				  return () => map.remove();
 		 })
-		 setSearch('')
+		if(search.length === 5){
+			const filteredZip = places.filter((place) => place.zipCode == search )
+			SetFilter(filteredZip)
+		}else {
+			const filteredStateCity = places.filter((place) => place.stateCity == search )
+			SetFilter(filteredStateCity)
+		}
 
+		 setSearch('')
+		
 
         }catch(err){
             console.log(err)
@@ -143,6 +144,15 @@ const mapContainerRef = useRef(null);
 
 			</div>
             </MapBox>
+			<PlacesBox>
+					<PlacesBox>
+				{filter.map(shack => (
+					<LocationFinderCard places={shack}/>
+				))}
+				</PlacesBox>
+	
+				
+			</PlacesBox>
         </FinderBox>
     )
 }
