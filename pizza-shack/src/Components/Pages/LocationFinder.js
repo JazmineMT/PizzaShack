@@ -44,11 +44,16 @@ const mapContainerRef = useRef(null);
 			// iterate through the feature collection and append marker to the map for each feature
 			places.map(result => {
 			console.log(result)
+			
+			var popup = new mapboxgl.Popup({offset: 15, className: 'my-class'}).setHTML(
+				'<h1>'+ result.name + '</h1><h4>' + result.fullAdd + '</h4> <h4>' + result.phone + '</h4> <h4>' + result.hours + '</h4>' 
+			)
 
 			var marker = new mapboxgl.Marker({
 				color: 'red',
 				draggable: false
 				}).setLngLat([result.long,result.lat])
+				.setPopup(popup) // sets a popup on this marker
 				.addTo(map);
 			})
 		})
@@ -80,11 +85,15 @@ const mapContainerRef = useRef(null);
 			  map.on('load', async () => {
 				// iterate through the feature collection and append marker to the map for each feature
 				places.map(result => {
-	
+					var popup = new mapboxgl.Popup({offset: 15, className: 'my-class'}).setHTML(
+						'<h1>'+ result.name + '</h1><h4>' + result.fullAdd + '</h4> <h4>' + result.phone + '</h4> <h4>' + result.hours + '</h4>' 
+					)
+		
 				var marker = new mapboxgl.Marker({
 					color: 'red',
 					draggable: false
 					}).setLngLat([result.long,result.lat])
+					.setPopup(popup) // sets a popup on this marker
 					.addTo(map);
 				})
 			})

@@ -35,6 +35,7 @@ export const places = [
     {
         id: 1,
         name: 'Pizza Shack',
+        fullAdd: '17246 Redmond Way Redmond, WA 98052',
         streetAddress: '17246 Redmond Way',
         stateCity:'Redmond, WA',
         zipCode: '98052',
@@ -46,6 +47,7 @@ export const places = [
     {
         id: 2,
         name: 'Pizza Shack',
+        fullAdd: '15945 Redmond Way Redmond, WA 98052',
         streetAddress: '15945 Redmond Way',
         stateCity:'Redmond, WA',
         zipCode: '98052',
@@ -57,6 +59,7 @@ export const places = [
     {
         id: 3,
         name: 'Pizza Shack',
+        fullAdd: '170 Lake St S Kirkland, WA 98033',
         streetAddress: '170 Lake St S',
         stateCity:'Kirkland, WA',
         zipCode: '98033',
@@ -68,9 +71,10 @@ export const places = [
     {
         id: 4,
         name: 'Pizza Shack',
+        fullAdd: '500 Broad St Seattle,WA 98109',
         streetAddress: '400 Broad St',
         stateCity:'Seattle, WA',
-        zipCode: '98033',
+        zipCode: '98109',
         phone: '(425)820,8323',
         lat: 47.6219024922197, 
         long: -122.34868353538344,
@@ -79,6 +83,7 @@ export const places = [
     {
         id: 5,
         name: 'Pizza Shack',
+        fullAdd: '1100 9th Ave Seattle, WA 98101',
         streetAddress: '1100 9th Ave',
         stateCity:'Seattle, WA',
         zipCode: '98101',
@@ -90,6 +95,7 @@ export const places = [
     {
         id: 6,
         name: 'Pizza Shack',
+        fullAdd: '2701 Utah Ave S Seattle, WA 98134',
         streetAddress: '2701 Utah Ave S',
         stateCity:'Seattle, WA',
         zipCode: '98134',
