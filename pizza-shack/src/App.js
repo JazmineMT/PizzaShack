@@ -16,6 +16,7 @@ import Drinks from './Components/Pages/Drinks'
 import Deals from './Components/Pages/Deals'
 import Desserts from './Components/Pages/Desserts'
 import Sides from './Components/Pages/Sides'
+import logo from './Components/Data/pics/logo.jpg'
 import { sides } from './Components/Data/data';
 import {useState} from 'react'
 
@@ -41,7 +42,7 @@ function App() {
     <div className="App">
       <Router>
         <div className='topMenu '>
-        <div className="first">
+        {/* <div className="first">
           <h3>Menu</h3>
             <Dropdown classname="menu" >
               <div>
@@ -62,16 +63,17 @@ function App() {
               </Dropdown.Menu>
           </Dropdown>
           <NavLink className="links" exact to='/deals'> Deals</NavLink>
-          </div>
-          <h1 className="title">Pizza Shack</h1>
+          </div> */}
+          <img className='logo' src={logo}/>
         <div className="first">
-          <NavLink className="links" exact to='/home'> Home</NavLink>
-  <NavLink className="links" exact to='/cart'><ShoppingCartIcon color="secondary"/> </NavLink><div>({cart.length})</div>
+        <button className='button'><NavLink className="links" exact to='/deals'> Deals</NavLink></button>
+          <button className='button'><NavLink className="links" exact to='/home'> Home</NavLink></button>
+           <button className='button'> <NavLink className="link" exact to='/cart'> </NavLink><div> My Cart ({cart.length})</div></button>
         </div>
         </div>
         <div className="secondHeader">
           <div className='welcome'>
-         <h3>Welcome to Pizza Shack!</h3>
+         <h3 className="textforborder" >Welcome to Pizza Shack!</h3>
           <NavLink className='signIn' exact to ='/signIn'>(Sign In)</NavLink>
           </div>
           <div className='join'>
