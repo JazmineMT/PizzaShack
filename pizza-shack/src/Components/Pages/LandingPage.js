@@ -3,6 +3,7 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 import { useHistory } from "react-router-dom";
 import { BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-dom'
 import {deals} from '../Data/data'
+import shack from '../Data/pics/shack.jpg'
 
 
 export default function LandingPage(props) {
@@ -14,9 +15,10 @@ export default function LandingPage(props) {
 
 
     return (
-        <>
+        <div className='landing'>
         <div className="mainPic">
-        <div className="Mainbtn" ><button className="button">Order Now </button></div>
+        
+        {/* <div className="Mainbtn" ><button className="button">Order Now </button></div> */}
       </div >
       <div className="locationMain">
         <div className="nearYou">
@@ -46,13 +48,13 @@ export default function LandingPage(props) {
       <h3 className="landingMenu"> Menu</h3>
       <div className='Menu'>
      
-              <div  className="pizzaLink"> <a onClick={() => history.push("/pizza")} >Pizza</a> </div>
-              <div className="wingsLink"> <a onClick={() => history.push("/wings")}>Wings</a> </div>
-              <div className="sidesLink"> <a onClick={() => history.push("/sides")}>Sides</a> </div>
-              <div className="pastaLink"> <a onClick={() => history.push("/pasta")}>Pasta</a> </div>
-              <div className="dessertLink"> <a onClick={() => history.push("/dessert")}>Dessert</a> </div>
-              <div className="drinksLink"> <a onClick={() => history.push("/drinks")}>Drinks</a> </div>
+              <div onClick={() => history.push("/pizza")}  className="pizzaLink"> <a onClick={() => history.push("/pizza")} >Pizza</a> </div>
+              <div onClick={() => history.push("/wings")} className="wingsLink"> <a onClick={() => history.push("/wings")}>Wings</a> </div>
+              <div onClick={() => history.push("/sides")} className="sidesLink"> <a onClick={() => history.push("/sides")}>Sides</a> </div>
+              <div onClick={() => history.push("/pasta")} className="pastaLink"> <a onClick={() => history.push("/pasta")}>Pasta</a> </div>
+              <div onClick={() => history.push("/dessert")} className="dessertLink"> <a onClick={() => history.push("/dessert")}>Dessert</a> </div>
+              <div   onClick={() => history.push("/drinks")} className="drinksLink"> <a onClick={() => history.push("/drinks")}>Drinks</a> </div>
       </div>
-        </>
+        </div>
     )
 }

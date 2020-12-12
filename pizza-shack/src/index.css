@@ -7,39 +7,56 @@
 }
 
 body {
-  font-family: 'sharp_sans_bold',sans-serif;
+  font-family: 'Yellowtail', cursive;
+  color: #EBE7D9
 }
 
 .App {
-  background-color: #ffffff;
+  width: 100vw;
+  background-color: #2A3C47;
 }
 
 .topMenu{
-  width: 100%;
+  width: 100vw;
   display: flex;
+  background-color: #0F222D;
   justify-content: space-between;
+}
+.logo{
+  margin-left: 4%;
 }
 
 .first{
+display: flex;
+justify-content: space-evenly;
+
+width: 70%;
+}
+
+.first .button{
+  width: 23%;
+  height: 30%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.first .button .link{
   display: flex;
-  padding: 15px 20px 15px;
 }
 
 
 .secondHeader {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  background: #202020 ;
-  border-bottom: 5px solid #e52a33;
-  color: white;
+  width: 100vw;
+  background: #FFF5D0;
+display: flex;
+justify-content: space-between;
+  color:  #0F222D;
   font-size: 1rem;
-  font-weight: 300;
 }
 
 .welcome {
   display: flex;
-  padding: 15px 5px 0px 15px;
+  padding: 15px 20px 15px 15px;
 }
 
 .join {
@@ -68,21 +85,20 @@ footer{
 
 .signIn{
   text-decoration: none;
-  color: #e52a33;
+  color: #0F222D;
   padding-left: 8px;
 }
 
 .signIn:hover{
-  filter: brightness(150%) 
+  filter: brightness(350%) 
 }
 
 .textforborder{
-  border-right: 1px solid white;
+  border-right: 1.5px solid #0F222D;
   padding-right: 15px;
 }
 .links{
   text-decoration: none;
-  padding: 5px;
 }
 
 .title{
@@ -108,18 +124,20 @@ footer{
   width: 10px;
   height: 10px;
 }
-
+.main{
+  width: 100vw;
+  height: 100vh;
+}
 .mainPic {
-  width: 95%;
-  height: 400px;
+  width: 100vw;
+  height: 100vh;
   margin: 0 auto;
   display: block;
-  background-image: url('./Components/Data/pics/main.jpg');
+  background-image: url('./Components/Data/pics/shack.jpg');
   overflow: hidden;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  margin-top: 2%;
 }
 
 .Mainbtn{
@@ -132,15 +150,19 @@ footer{
 }
 .button{
   display:inline-block;
+  font-size: 18px;
+  letter-spacing: 0.9px;
   padding:0.7em 1.7em;
   margin:0 0.3em 0.3em 0;
-  border-radius: 15px;
-  box-sizing: border-box;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  overflow: hidden;
   text-decoration:none;
   font-family:'Roboto',sans-serif;
   font-weight:400;
   color:#FFFFFF;
-  background-color: #e52a33;
+  background-color: #BA3521;
+  padding: 10px 16px 10px 16px;
   box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
   text-align:center;
   position:relative;
@@ -154,10 +176,13 @@ footer{
 .mainPic .button{
   width: 500px;
 }
+.landing{
+  width: 100vw;
+}
 
 .locationMain {
-  background-color: rgb(192, 57, 43,.3) ;
-  border: 3px solid  rgb(192, 57, 43,.9);
+  background-color:#0F222D;
+
   width: 95%;
   margin: 2%;
   padding: 10px;
@@ -179,6 +204,7 @@ footer{
 }
 
 .pizzaLink{
+  padding-top:2% ;
   margin: 0 auto;
   margin-bottom: 2%;
   display: block;
@@ -189,9 +215,13 @@ footer{
   background-position: center;
   width: 400px;
   height: 150px;
+  font-size: 3rem;
 }
 
+
 .wingsLink{
+  padding-top:2% ;
+  font-size: 3rem;
   margin: 0 auto;
   display: block;
   background-image: url('./Components/Data/pics/wings.jpg');
@@ -203,6 +233,8 @@ footer{
   height: 150px;
 }
 .sidesLink{
+  padding-top:2% ;
+  font-size: 3rem;
   margin: 0 auto;
   display: block;
   background-image: url('./Components/Data/pics/sides.jpg');
@@ -214,6 +246,8 @@ footer{
   height: 150px;
 }
 .pastaLink{
+  padding-top:2% ;
+  font-size: 3rem;
   margin: 0 auto;
   display: block;
   background-image: url('./Components/Data/pics/pasta.jpg');
@@ -225,6 +259,7 @@ footer{
   height: 150px;
 }
 .dessertLink{
+  font-size: 3rem;
   margin: 0 auto;
   display: block;
   background-image: url('./Components/Data/pics/dessert.jpg');
@@ -234,8 +269,11 @@ footer{
   background-position: center;
   width: 400px;
   height: 150px;
+  padding-top:2% ;
 }
 .drinksLink{
+  padding-top:2% ;
+  font-size: 3rem;
   margin: 0 auto;
   display: block;
   background-image: url('./Components/Data/pics/drinks.jpg');
@@ -278,9 +316,9 @@ footer{
   width: 400px;
   height: 400px;
   display:flex;
+  border: 1px solid transparent;
   flex-direction: column;
   justify-content: space-between;
-  border: solid .5px #cfcecc;
 }
 
 .IMGBox{
