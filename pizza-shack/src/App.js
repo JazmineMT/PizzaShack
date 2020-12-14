@@ -1,7 +1,6 @@
+import {useState} from 'react'
+import { useHistory } from "react-router-dom";
 import { BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-dom'
-import {Dropdown, Navbar} from 'react-bootstrap'
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import LandingPage from './Components/Pages/LandingPage'
 import FAQs from './Components/Pages/FAQs'
 import AboutUs from './Components/Pages/AboutUs'
@@ -18,12 +17,58 @@ import Desserts from './Components/Pages/Desserts'
 import Sides from './Components/Pages/Sides'
 import logo from './Components/Data/pics/logo.jpg'
 import { sides } from './Components/Data/data';
-import {useState} from 'react'
+import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import ListItemText from '@material-ui/core/ListItemText';
+
+const StyledMenuItem = withStyles((theme) => ({
+  root: {
+    '&:focus': {
+      backgroundColor: theme.palette.primary.main,
+      '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
+        color: theme.palette.common.white,
+      },
+    },
+  },
+}))(MenuItem);
+
+
+
+const StyledMenu = withStyles({
+  paper: {
+    border: '1px solid #d3d4d5',
+  },
+})((props) => (
+  <Menu
+    elevation={0}
+    getContentAnchorEl={null}
+    anchorOrigin={{
+      vertical: 'bottom',
+      horizontal: 'center',
+    }}
+    transformOrigin={{
+      vertical: 'top',
+      horizontal: 'center',
+    }}
+    {...props}
+  />
+));
 
 
 function App() {
+  let history = useHistory();
   const [cart , setCart] = useState([]) 
+  const [anchorEl, setAnchorEl] = useState(null);
 
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   const addToCart = (item) => {
     setCart([...cart, item])
@@ -42,33 +87,52 @@ function App() {
     <div className="App">
       <Router>
         <div className='topMenu '>
-        {/* <div className="first">
-          <h3>Menu</h3>
-            <Dropdown classname="menu" >
-              <div>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-                <ArrowDropDownIcon/>
-              </Dropdown.Toggle>
-              </div>
-
-              <Dropdown.Menu className='dropdownmenu'>
-                
-                <Dropdown.Item className="dropdown">  <NavLink className='link' exact to='/pizza'>Pizza</NavLink>  </Dropdown.Item>
-                <Dropdown.Item className="dropdown" >  <NavLink className='link' exact to='/wings'>Wings</NavLink>  </Dropdown.Item>
-                <Dropdown.Item className="dropdown" >  <NavLink className='link' exact to='/sides'>Sides</NavLink>  </Dropdown.Item>
-                <Dropdown.Item className="dropdown" >  <NavLink className='link' exact to='/pasta'>Pasta</NavLink>  </Dropdown.Item>
-                <Dropdown.Item className="dropdown" >  <NavLink className='link' exact to='/dessert'>Dessert</NavLink>  </Dropdown.Item>
-                <Dropdown.Item className="dropdown">  <NavLink className='link' exact to='/drinks'>Drinks</NavLink>  </Dropdown.Item>
-                <Dropdown.Item className="dropdown">  <NavLink className='link' exact to='/locationfinder'> Pizza Shack Finder</NavLink>  </Dropdown.Item>
-              </Dropdown.Menu>
-          </Dropdown>
-          <NavLink className="links" exact to='/deals'> Deals</NavLink>
-          </div> */}
           <img className='logo' src={logo}/>
-        <div className="first">
-        <button className='button'><NavLink className="links" exact to='/deals'> Deals</NavLink></button>
-          <button className='button'><NavLink className="links" exact to='/home'> Home</NavLink></button>
-           <button className='button'> <NavLink className="link" exact to='/cart'> </NavLink><div> My Cart ({cart.length})</div></button>
+        <div className="first"> 
+        <button
+        aria-controls="customized-menu"
+        aria-haspopup="true"
+        variant="contained"
+        className='button'
+        color="primary"
+        onClick={handleClick}
+      >
+        Menu
+      </button>
+      <StyledMenu
+        id="customized-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        <StyledMenuItem>
+
+        <NavLink className='link' exact to='/pizza'>Pizza</NavLink>
+        </StyledMenuItem>
+        <StyledMenuItem>
+        <NavLink className='link' exact to='/wings'>Wings</NavLink>
+        </StyledMenuItem>
+        <StyledMenuItem>
+        <NavLink className='link' exact to='/sides'>Sides</NavLink> 
+        </StyledMenuItem>
+        <StyledMenuItem>
+        <NavLink className='link' exact to='/pasta'>Pasta</NavLink>
+        </StyledMenuItem>
+        <StyledMenuItem>
+        <NavLink className='link' exact to='/dessert'>Dessert</NavLink> 
+        </StyledMenuItem>
+        <StyledMenuItem>
+        <NavLink className='link' exact to='/drinks'>Drinks</NavLink>
+        </StyledMenuItem>
+        <StyledMenuItem>
+        <NavLink className='link' exact to='/locationfinder'> Pizza Shack Finder</NavLink> 
+      </StyledMenuItem>
+      </StyledMenu>
+        
+        <button   className='button'><NavLink className='linkb' exact to='/home'>Home</NavLink></button>
+          <button   className='button'> <NavLink className='linkb' exact to='/deals'>Deals</NavLink> </button>
+           <button  className='button'> <NavLink className='linkb' exact to='/cart'><div> My Cart ({cart.length})</div></NavLink></button>
         </div>
         </div>
         <div className="secondHeader">
