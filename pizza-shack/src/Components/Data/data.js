@@ -114,7 +114,7 @@ export const deals = [
     {
         id: 1,
         name: 'SuperBowl Sampler',
-        description: ' Perfect deal for your superbowl party. You get two large double cheese pizzas , 2 2-liters, and a brownis to share',
+        description:  " Perfect deal for your superbowl party. You get two large double cheese pizza's , two 2-liters, and a brownies to share",
         price: 32.99,
         picURL: superBowl
     }
