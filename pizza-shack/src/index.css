@@ -110,7 +110,10 @@ footer{
 
 .title{
   padding-top: 10px;
+  font-size: 3rem;
+  letter-spacing: 4px;
   text-align: center;
+  font-family: 'Yellowtail', 'cursive';
 }
 
 .dropdownmenu{
@@ -548,8 +551,8 @@ margin: 1%;
 }
 
 .mapContainer {
-  height: 60vh;
-  width: 80%;
+  height: 450px;
+  width: 800px;
   position: absolute;
   top: 0;
   bottom: 0;

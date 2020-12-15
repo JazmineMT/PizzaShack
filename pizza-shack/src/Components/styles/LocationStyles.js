@@ -34,12 +34,20 @@ width: 100%;
 `
 
 export const IMGBox = styled.div `
-width: 30% ;
-height: 40% ;
+width: 50% ;
+height: 100% ;
+margin-bottom:-.6%;
+
 
 `
 
 export const ContentBox = styled.div  `
+font-size: 1.5rem;
+padding: 2%;
+display:flex;
+flex-direction:column;
+justify-content: space-around;
+
 
 
 
@@ -47,20 +55,45 @@ export const ContentBox = styled.div  `
 
 export const AddBox = styled.div`
 
+font-size: 1.3rem;
 `
 
 export const Container = styled.div`
-width: 50% ;
-border: solid .5px #cfcecc;
+width: 60% ;
 display: flex;
 justify-content: space-between;
 margin: 5%;
 margin-left: auto;
 margin-right: auto;
+background-color: #F5F5F5;
+box-shadow: 5px 5px 15px rgba(#0F222D, .5);
+color: #4E4E4E;
+border-radius: 10px;
 
 `
 
 export const IMG = styled.img `
 width : 100%;
 height: 100%;
+border-bottom-right-radius: 8px;
+border-top-right-radius: 10px;
+`
+
+export const H4 = styled.h4 `
+
+
+
+`
+export const H42 = styled.h4 `
+
+`
+
+
+export const H3 = styled.h3 `
+`
+
+
+export const OtherBox = styled.div `
+
+
 `

@@ -1,5 +1,5 @@
 import React from 'react'
-import {IMGBox, ContentBox, AddBox, Container, IMG} from '../styles/LocationStyles'
+import {IMGBox, ContentBox, AddBox, Container, IMG, H4,H3, H42, OtherBox} from '../styles/LocationStyles'
 import store from '../Data/pics/store.jpg'
 import StoreIcon from '@material-ui/icons/Store';
 import PhoneIcon from '@material-ui/icons/Phone';
@@ -12,15 +12,17 @@ export default function LocationFinderCard(props){
     return (
             <Container>
                 <ContentBox>
-                        <h3><StoreIcon/> Ready in 15 mins</h3>
+                        <H3><StoreIcon/> Ready in 15 mins</H3>
     
                     <AddBox>
-                     <h4>{props.places.streetAddress}</h4>
-                     <h4>{props.places.stateCity} {props.places.zipCode}</h4>
+                     <H42>{props.places.streetAddress}</H42>
+                     <H42>{props.places.stateCity} {props.places.zipCode}</H42>
 
                     </AddBox>
-                    <h4> <PhoneIcon/> {props.places.phone}</h4>
-                     <h4><ScheduleIcon/> {props.places.hours}</h4>
+                    <OtherBox>
+                    <H4> <PhoneIcon/> {props.places.phone}</H4>
+                     <H4><ScheduleIcon/> {props.places.hours}</H4>
+                     </OtherBox>
                 </ContentBox>
                 <IMGBox>
                     <IMG src={store}/>
