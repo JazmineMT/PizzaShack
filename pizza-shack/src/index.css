@@ -110,7 +110,10 @@ footer{
 
 .title{
   padding-top: 10px;
+  font-size: 3rem;
+  letter-spacing: 4px;
   text-align: center;
+  font-family: 'Yellowtail', 'cursive';
 }
 
 .dropdownmenu{
@@ -487,7 +490,7 @@ height: 800px;
 .pizzalink{
   text-decoration: none;
   font-size: 2rem;
-  color :black;
+  color : #EBE7D9;
   
 
 }
@@ -505,7 +508,7 @@ height: 800px;
 }
 
 footer{
-  padding-top: 15%;
+  padding-top: 10%;
 }
 
 .faqHeader{
@@ -539,9 +542,7 @@ margin: 1%;
 
 }
 
-.remove{
-  padding: 10%;
-}
+
 
 .search .button {
   width: 10%;
@@ -550,8 +551,8 @@ margin: 1%;
 }
 
 .mapContainer {
-  height: 60vh;
-  width: 80%;
+  height: 450px;
+  width: 800px;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -766,5 +767,17 @@ margin: 1%;
   padding-top: 20px;
   padding-bottom: 20px;
   color: #fff;
+  text-align: center;
+}
+
+.pageTitle{
+  font-family: 'Yellowtail', 'cursive';
+  font-size: 4rem;
+  letter-spacing: 5px;
+  margin-left: 3%;
+  margin-top: 2%;
+}
+
+.empty{
   text-align: center;
 }

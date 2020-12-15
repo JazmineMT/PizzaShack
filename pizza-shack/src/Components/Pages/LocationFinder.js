@@ -15,7 +15,9 @@ import { red } from '@material-ui/core/colors'
 const useStyles = makeStyles((theme) => ({
     textBox: {
       width: '30%',
-      margin: '3%',
+	  margin: '3%',
+	  background: '#EBE7D9',
+	  borderRadius: '10px',
 
     },
     button: {

@@ -8,7 +8,7 @@ import {NavBox, Line} from '../styles/PizzaStyles'
 export default function Pizza(props){
     return(
         <div>
-            <h1>Pizza</h1>
+            <h1 className='pageTitle'>Pizza</h1>
             <Router>
                 <NavBox>
             <NavLink className='pizzalink' exact to='/popularpizza'>Popular Pizza's </NavLink>
