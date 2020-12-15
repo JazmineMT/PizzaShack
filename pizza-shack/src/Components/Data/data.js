@@ -145,7 +145,7 @@ export const wings = [
     },
     {
         id: 2,
-        name: 'Sweet and Spic Wings ',
+        name: 'Sweet and Spicy Wings ',
         description: 'One dozen wings',
         price: 10.99,
         picURL: sweet

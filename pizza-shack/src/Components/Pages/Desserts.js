@@ -5,7 +5,7 @@ import MenuCard from '../Cards/MenuCard'
 export default function Dessert(props){
     return(
         <div>
-            <h1>Desserts</h1>
+            <h1 className='pageTitle' >Desserts</h1>
             <MenuCard item={dessrts} addToCart={props.addToCart}/>
         </div>
     )

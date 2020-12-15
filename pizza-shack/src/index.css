@@ -487,7 +487,7 @@ height: 800px;
 .pizzalink{
   text-decoration: none;
   font-size: 2rem;
-  color :black;
+  color : #EBE7D9;
   
 
 }
@@ -539,9 +539,7 @@ margin: 1%;
 
 }
 
-.remove{
-  padding: 10%;
-}
+
 
 .search .button {
   width: 10%;
@@ -766,5 +764,17 @@ margin: 1%;
   padding-top: 20px;
   padding-bottom: 20px;
   color: #fff;
+  text-align: center;
+}
+
+.pageTitle{
+  font-family: 'Yellowtail', 'cursive';
+  font-size: 4rem;
+  letter-spacing: 5px;
+  margin-left: 3%;
+  margin-top: 2%;
+}
+
+.empty{
   text-align: center;
 }

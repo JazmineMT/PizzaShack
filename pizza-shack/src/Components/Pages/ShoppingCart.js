@@ -1,6 +1,6 @@
 import React , {useEffect, useState}from 'react'
-import {Container, ItemsContainer, Last, Buttons, Total} from '../styles/ShoppingCartStyles'
-import {Item, IMG, IMGBox, DesBox, PriceBox, NameBox,MiddleBox} from '../styles/ShoppingCartStyles'
+import {Container, ItemsContainer, Last, Buttons, Total, Remove} from '../styles/ShoppingCartStyles'
+import {Item, IMG, IMGBox, DesBox, PriceBox, NameBox,MiddleBox, Title, Price, Para} from '../styles/ShoppingCartStyles'
 import pizza from '../Data/pics/pizza.jpg'
 
 
@@ -31,8 +31,11 @@ export default function ShoppingCart(props){
 
     return (
         <div>
-            <h1> My Order </h1>
+            <h1 className='pageTitle'> My Order </h1>
         <Container>
+        {props.order.length === 0 && (
+                <h1 className='empty'> There's nothing in your cart! </h1>
+            ) }
             <ItemsContainer>
 
             {props.order.map( item => {
@@ -45,14 +48,14 @@ export default function ShoppingCart(props){
                         </IMGBox>
                         <MiddleBox>
                         <NameBox>
-                        <h3>{item.size} Pizza</h3>
+                        <Title>{item.size} Pizza</Title>
                         </NameBox>
                         <DesBox>
-                        <p>{item.size} pizza , {item.crust} Crust , {item.sauce} sauce,</p>
+                        <Para>{item.size} {item.crust} crust Pizza, with {item.sauce} sauce,</Para>
                         {item.toppings.map(topping => {    
                             return(
                                 <div>
-                                    <p>{topping}</p>
+                                    <Para>{topping}</Para>
                                 </div>
                             )
                         })}
@@ -61,12 +64,12 @@ export default function ShoppingCart(props){
                         </DesBox>
                         </MiddleBox>
                         <PriceBox>
-                            <h4 className='remove'> ${item.price}</h4>
-                            <a onClick={() =>{
+                            <Price > ${item.price.toFixed(2)}</Price>
+                            <Remove onClick={() =>{
                                     props.removeSpecail(item)
                                     sum = total - item.price
                                     SetTotal(sum)
-                                }}> Remove</a>
+                                }}> Remove</Remove>
                         </PriceBox>
                     </Item>
                     )
@@ -79,19 +82,19 @@ export default function ShoppingCart(props){
                             </IMGBox>
                             <MiddleBox>
                             <NameBox>
-                            <h3>{item.name}</h3>
+                            <Title>{item.name}</Title>
                             </NameBox>
                             <DesBox>
-                            <p>{item.description}</p>
+                            <Para>{item.description}</Para>
                             </DesBox>
                             </MiddleBox>
                             <PriceBox>
-                                <h4 className='remove'> ${item.price}</h4>
-                                <a onClick={() =>{
+                                <Price > ${item.price.toFixed(2)}</Price>
+                                <Remove onClick={() =>{
                                     props.remove(item)
                                     sum = total - item.price
                                     SetTotal(sum)
-                                }}> Remove</a>
+                                }}> Remove</Remove>
 
                             </PriceBox>
                         </Item>
@@ -100,7 +103,10 @@ export default function ShoppingCart(props){
             })}
              
             </ItemsContainer>
-            <Last>
+                {props.order.length > 0 && (
+                
+                <Last>
+                    
                 <Buttons className='btnBox'>
                     <button  className='button'> Add More Food</button>
                     <button  className='button'> Checkout</button>
@@ -110,7 +116,7 @@ export default function ShoppingCart(props){
                 <h3 > Total</h3>
                 <h4>$ {total.toFixed(2)}</h4>
                 </Total>
-            </Last>
+            </Last>)}
         </Container>
         </div>
 
