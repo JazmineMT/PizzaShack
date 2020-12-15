@@ -26,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
   }));
 const location = {latitude: 39.8283, longitude: -98.5556,}
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiamF6bWluZW10IiwiYSI6ImNraWpwcHdlZDAyOGsyeXA3bnM5anM2Ym8ifQ.C09jSGF7t0vwqHnQWjoqMA';
 
 export default function LocationFinder(props) {
 const [search  , setSearch] = useState('')
@@ -34,14 +33,16 @@ const [ filter , SetFilter] = useState(places)
 const classes = useStyles();
 const mapContainerRef = useRef(null);
 
+	mapboxgl.accessToken = 'pk.eyJ1IjoiamF6bWluZW10IiwiYSI6ImNraWpwbml5eDAyOTAycW54cWgxZHFheGcifQ.0JeJIdscyx6LSjhQHhvivw'
         useEffect(() => {
+
     const map = new mapboxgl.Map({
-      container: mapContainerRef.current,
+	  container: 'map',
+	  style: 'mapbox://styles/mapbox/streets-v11',
       // See style options here: https://docs.mapbox.com/api/maps/#styles
-      style: 'mapbox://styles/mapbox/streets-v11',
       center: [location.longitude, location.latitude],
       zoom: 3,
-	});
+		})
 		map.on('load', async () => {
 			// iterate through the feature collection and append marker to the map for each feature
 			places.map(result => {
@@ -61,9 +62,9 @@ const mapContainerRef = useRef(null);
 		})
         // add navigation control (the +/- zoom buttons)
         map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
-
-        // clean up on unmount
-		return () => map.remove();
+		map.resize();
+		
+      
 		
 		
       }, []);
@@ -78,8 +79,7 @@ const mapContainerRef = useRef(null);
 		 const results = data.results 
          results.map(item => {
 			const map = new mapboxgl.Map({
-				container: mapContainerRef.current,
-				// See style options here: https://docs.mapbox.com/api/maps/#styles
+				container: 'map',
 				style: 'mapbox://styles/mapbox/streets-v11',
 				center: [item.geometry.location.lng, item.geometry.location.lat],
 				zoom: 10,
@@ -150,11 +150,11 @@ const mapContainerRef = useRef(null);
    
 
             </SearchBox>
-            <MapBox >
-            <div className="mapContainer" ref={mapContainerRef}>
+            
+            <div id="map"  style={{width: "60vw", height: "60vh", marginLeft: '15%'}} ref={mapContainerRef}>
 
 			</div>
-            </MapBox>
+            
 			<PlacesBox>
 					<PlacesBox>
 				{filter.map(shack => (
