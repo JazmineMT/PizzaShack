@@ -16,7 +16,6 @@ import Deals from './Components/Pages/Deals'
 import Desserts from './Components/Pages/Desserts'
 import Sides from './Components/Pages/Sides'
 import logo from './Components/Data/pics/logo.jpg'
-import { sides } from './Components/Data/data';
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
