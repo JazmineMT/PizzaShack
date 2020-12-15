@@ -52,7 +52,7 @@ margin-left: 3%;
 `
 
 export const ButtonBox = styled.div `
-width: 75%;
+width: 200px;
 
 
 `
