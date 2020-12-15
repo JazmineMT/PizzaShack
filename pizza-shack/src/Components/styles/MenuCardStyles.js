@@ -23,7 +23,7 @@ border-radius: 10px;
 
 `
 export const IMGBox = styled.div `
-width: 50%;
+width: 300px;
 height: 100%;
 display:flex;
 flex-direction:column;
@@ -45,6 +45,7 @@ export const DescriptionBox = styled.div `
 display:flex;
 flex-direction: column;
 justify-content: space-evenly;
+width: 400px;
 padding: 2%;
 margin-left: 3%;
 
