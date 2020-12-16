@@ -24,12 +24,14 @@ const useStyles = makeStyles((theme) => ({
         width: '30%',
     }
   }));
-const location = {latitude: 39.8283, longitude: -98.5556,}
+// const location = {latitude: 39.8283, longitude: -98.5556,}
 
 
 export default function LocationFinder(props) {
 const [search  , setSearch] = useState('')
 const [ filter , SetFilter] = useState(places)
+const [location , setLocation] = useState(null)
+const [prev  ,setPrev] = useState(null)
 const classes = useStyles();
 const mapContainerRef = useRef(null);
 
@@ -77,34 +79,40 @@ const mapContainerRef = useRef(null);
          const res = await fetch(url)
          const data = await res.json()
 		 const results = data.results 
-        //  results.map(item => {
-		// 	const map = new mapboxgl.Map({
-		// 		container: 'map',
-		// 		style: 'mapbox://styles/mapbox/streets-v11',
-		// 		center: [item.geometry.location.lng, item.geometry.location.lat],
-		// 		zoom: 10,
-		// 	  });
-		// 	  map.on('load', async () => {
-		// 		// iterate through the feature collection and append marker to the map for each feature
-		// 		places.map(result => {
-		// 			var popup = new mapboxgl.Popup({offset: 15, className: 'my-class'}).setHTML(
-		// 				'<h1>'+ result.name + '</h1><h4>' + result.fullAdd + '</h4> <h4>' + result.phone + '</h4> <h4>' + result.hours + '</h4>' 
-		// 			)
+		 console.log(results)
+		 
+			setPrev(location)
+         results.map(item => {
+			setLocation({latitude: item. geometry.location.lat, longitude: item.geometry.location.lng})
+			// const map = new mapboxgl.Map({
+			// 	container: 'map',
+			// 	style: 'mapbox://styles/mapbox/streets-v11',
+			// 	center: [item.geometry.location.lng, item.geometry.location.lat],
+			// 	zoom: 10,
+			//   });
+			//   map.on('load', async () => {
+			// 	// iterate through the feature collection and append marker to the map for each feature
+			// 	places.map(result => {
+			// 		var popup = new mapboxgl.Popup({offset: 15, className: 'my-class'}).setHTML(
+			// 			'<h1>'+ result.name + '</h1><h4>' + result.fullAdd + '</h4> <h4>' + result.phone + '</h4> <h4>' + result.hours + '</h4>' 
+			// 		)
 		
-		// 		var marker = new mapboxgl.Marker({
-		// 			color: 'red',
-		// 			draggable: false
-		// 			}).setLngLat([result.long,result.lat])
-		// 			.setPopup(popup) // sets a popup on this marker
-		// 			.addTo(map);
-		// 		})
-		// 	})
-		// 		  // add navigation control (the +/- zoom buttons)
-		// 		  map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+			// 	var marker = new mapboxgl.Marker({
+			// 		color: 'red',
+			// 		draggable: false
+			// 		}).setLngLat([result.long,result.lat])
+			// 		.setPopup(popup) // sets a popup on this marker
+			// 		.addTo(map);
+			// 	})
+			// })
+			// 	  // add navigation control (the +/- zoom buttons)
+			// 	  map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
 		  
-		// 		  // clean up on unmount
-		// 		  return () => map.remove();
-		//  })
+			// 	  // clean up on unmount
+			// 	  return () => map.remove();
+		 })
+		 console.log(prev)
+		 console.log(location)
 		if(search.length === 5){
 			const filteredZip = places.filter((place) => place.zipCode == search )
 			SetFilter(filteredZip)
@@ -114,13 +122,15 @@ const mapContainerRef = useRef(null);
 		}
 
 		 setSearch('')
+		 
 		
 
         }catch(err){
             console.log(err)
         }
 
-    }
+	}
+
 
 
     const handleChange = (evt) => {
@@ -151,14 +161,31 @@ const mapContainerRef = useRef(null);
 
             </SearchBox>
             <MapBox>
-			<GoogleMapReact
+				{ location === null && (
+
+						<GoogleMapReact
+						bootstrapURLKeys={{
+						key: "AIzaSyAa6KpgYLtTzRPT8KHEjTMyi3qXaZ-eDJo",
+						language: "en",
+						region: "US"
+						}}
+						defaultCenter={{ lat: 39.8283, lng: -98.5556 }}
+						defaultZoom={4}/>
+
+
+				)}
+				{ location != prev && (
+
+					<GoogleMapReact
 					bootstrapURLKeys={{
 					key: "AIzaSyAa6KpgYLtTzRPT8KHEjTMyi3qXaZ-eDJo",
 					language: "en",
 					region: "US"
 					}}
 					defaultCenter={{ lat: location.latitude, lng: location.longitude }}
-					defaultZoom={4}/>
+					defaultZoom={12}/>
+
+				)}
 			</MapBox>
 
             
