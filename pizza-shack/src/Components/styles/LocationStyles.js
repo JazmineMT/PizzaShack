@@ -98,3 +98,28 @@ export const OtherBox = styled.div `
 
 
 `
+
+export const Marker = styled.div `
+  width: 30px;
+  height: 30px;
+
+`
+
+export const InfoWindow = styled.div ` 
+  width: 15vw;
+  height: 15vh;
+  color: black;
+  border-radius: 15px;
+
+`
+
+export const InfoContent = styled.div `
+box-sizing: border-box;
+width: 100%;
+height: 100%;
+font-size: 8px;
+background-color: white;
+
+
+
+`
