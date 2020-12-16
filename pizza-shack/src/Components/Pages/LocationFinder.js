@@ -37,6 +37,7 @@ const [search  , setSearch] = useState('')
 const [showinfoWindow, setShowinfoWindow] = useState(false)
 const [ filter , SetFilter] = useState(places)
 const [location , setLocation] = useState(null)
+const [Id , setId] = useState(null)
 const [prev  ,setPrev] = useState(null)
 const classes = useStyles();
 const mapContainerRef = useRef(null);
@@ -123,6 +124,7 @@ let isVisible = true;
 						>
 						{places.map(point => (
 						<Marker
+						id = {point.id}
 						lat={point.lat}
 						lng={point.long}
 						color='red'
@@ -134,8 +136,9 @@ let isVisible = true;
 						>
 						
 						{
-							showinfoWindow ? 
-							<InfoWindow>
+							Marker.id === InfoWindow.id && showinfoWindow ? 
+							<InfoWindow
+							id={point.id} >
 							<InfoContent>
 								<h1>Pizza Shack</h1>
 								<h2>{point.fullAdd}</h2>
@@ -169,28 +172,32 @@ let isVisible = true;
 
 					{places.map(point => (
 						<Marker
+						id = {point.id}
 						lat={point.lat}
 						lng={point.long}
+						color='red'
+						name='Pizza Shack'
+						text='Hello'
 						onClick={onClick}
 						isdraggable={true}
 
-						>			
-					
-						{
-							showinfoWindow ? 
-							<InfoWindow>
-							<InfoContent>
-								<div>
-								<h1 className='infoBox'>Pizza Shack</h1>
-								<h2 className='infoBox' >{point.fullAdd}</h2>
-								<h2 className='infoBox' >{point.phone}</h2>
-								<h2 className='infoBox' >{point.hours}</h2>
-								</div>
-							</InfoContent>
-							</InfoWindow>  : null
-						}
+						>
 						
-						<LocalPizzaIcon style={{ color: red[500] ,  fontSize: 40, paddingRight:'5%'}} />
+						{
+							Marker.id === InfoWindow.id && showinfoWindow ? 
+							<InfoWindow
+							id={point.id} >
+							<InfoContent>
+								<h1>Pizza Shack</h1>
+								<h2>{point.fullAdd}</h2>
+								<h2>{point.phone}</h2>
+								<h2>{point.hours}</h2>
+							</InfoContent> 
+								</InfoWindow>
+								 : null
+						}
+					
+						<LocalPizzaIcon style={{ color: red[500] ,  fontSize: 40}} />
 						</Marker>
 					))}
 					</GoogleMapReact>

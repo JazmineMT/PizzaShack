@@ -1,4 +1,6 @@
 import React from 'react'
+import * as Yup from 'yup';
+import formSchema from '../validation/RegisterSchema'
 import {useState, useEffect} from 'react'
 import {Header, AccountInfo, YourInfo, Container, TextFieldBox, Border, Container2, ButtonBox} from '../styles/RegisterStyles'
 import LocalPizzaIcon from '@material-ui/icons/LocalPizza';
@@ -49,6 +51,22 @@ const classes = useStyles();
 
     const handleChange = (evt) => {
         const {name , value} = evt.target
+
+        Yup
+        .reach(formSchema,name)
+        .validate(value)
+        .then(()=>{
+            setFormErrors({
+                ...formErrors,
+                [name]:''
+            });
+        })
+        .catch(err =>{
+            setFormErrors({
+                ...formErrors,
+                [name]: err.errors[0] 
+            })
+        })
 
         setValues({
             ...values,
@@ -111,6 +129,7 @@ const classes = useStyles();
                             }
                         labelWidth={70}
                         />
+                        <FormHelperText id="outlined-helper-text">{formErrors.password}</FormHelperText>
                     </TextFieldBox>
 
               
