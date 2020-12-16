@@ -19,8 +19,9 @@ width: 100%;
 `
 
 export const MapBox = styled.div `
-height: 100%;
-width: 100%;
+height: 500px;
+width: 800px;
+margin-left: 13%;
 display: flex;
 justify-content: center;
 `
