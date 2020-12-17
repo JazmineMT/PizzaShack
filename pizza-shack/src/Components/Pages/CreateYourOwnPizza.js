@@ -1,4 +1,4 @@
-import React ,{useState} from 'react'
+import React ,{useState, useEffect, useRef} from 'react'
 import {ToppingTitle, ToppingBox, LargeBox, ButtonAndTotal, Box, RadioBox, ToppingsBox, Boxes, Pizza, Container} from '../styles/PizzaStyles'
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -13,32 +13,37 @@ import { Button } from 'react-bootstrap';
 import { makeStyles } from '@material-ui/core/styles';
 import { FormHelperText } from '@material-ui/core';
 
-const initailFormValues = {
-    name: 'specail',
-    size: '',
-    sauce:'',
-    crust: '',
-    date: new Date(),
-    price: 0 ,
-    cheese:{
-        extraCheese: false
-    },
-    toppings:{
-        mushroom: false,
-      pepperoni: false,
-      sausage: false,
-      onions: false,
-      pineapple:false,
-      greenPeppers: false,
-      olives: false,
-      jalepenos: false
-    },
-  }
+const initailFormValues ={
+          
+  name: 'specail',
+  size: 'Medium',
+  sauce:'Marinara',
+  crust: 'Regular',
+  date: new Date(),
+  price: 0 ,
+  cheese:{
+      extraCheese: false
+  },
+  toppings:{
+      mushroom: false,
+    pepperoni: false,
+    sausage: false,
+    onions: false,
+    pineapple:false,
+    greenPeppers: false,
+    olives: false,
+    jalepenos: false
+  },
+
+
+}
 
   const useStyles = makeStyles((theme) => ({
     formControl: {
       margin: theme.spacing(0),
+      borderRadius: '10px',
       minWidth: 300,
+      backgroundColor: '#FFF5D0',
 
     },
     toppings: {
@@ -74,8 +79,15 @@ export default function CreateYourOwnPizza(props){
     const [jalepenos , setJalepenos] = useState(false)
     const [extraCheddar , setExtraCheddar] = useState(false)
 
+    
+
+    useEffect(() => {
+        setTotal(15)
+
+    },[])
 
 
+   
     const handleChange = (evt) => {
         const {name , value} = evt.target
   
@@ -91,19 +103,53 @@ export default function CreateYourOwnPizza(props){
       }
 
 
-        if( value === 'Small'){
-            setTotal(10)
+        if( value === 'Small' && values.size === 'Medium'){
+            setTotal(total - 5)
             setSize("scale(.6)")
-        }else if(value === 'Medium'){
-            setTotal(15)
-            setSize("scale(.7)")
-        }else if(value === 'Large'){
-            setTotal(20)
-            setSize("scale(.8)")
+        }else if(value === 'Small' && values.size === 'Large'){
+          setTotal(total - 10)
+          setSize("scale(.6)")
+        }else if(value === 'Small' && values.size === 'Extra-Large'){
+          setTotal(total - 15)
+          setSize("scale(.6)")
         }
-        else if( value === 'Extra-Large'){
-            setTotal(25)
+        
+        
+        
+        
+        if(value === 'Medium' && values.size === 'Small'){
+            setTotal(total + 5)
+            setSize("scale(.7)")
+        }else if(value === 'Medium' && values.size === 'Large'){
+            setTotal(total - 5)
+            setSize("scale(.7)")
+        }else if(value === 'Medium' && values.size === 'Extra-Large'){
+          setTotal(total - 10)
+          setSize("scale(.7)")
+      }
+        
+        
+        if(value === 'Large' && values.size === 'Small'){
+            setTotal(total + 10)
+            setSize("scale(.8)")
+        }else if(value === 'Large' && values.size ==='Medium '){
+          setTotal(total + 5)
+          setSize("scale(.8)")
+        }else if(value === 'Large' && values.size === 'Extra-Large'){
+          setTotal(total - 5)
+          setSize("scale(.8)")
+        }
+
+        
+        if( value === 'Extra-Large' && values.size === 'Small'){
+            setTotal(total + 15)
             setSize("scale(.9)")
+        }else if(value === 'Extra-Large' && values.size === 'Medium'){
+          setTotal(total + 10)
+          setSize("scale(.9)")
+        }else if (value === 'Extra-Large' && values.size === 'Large'){
+          setTotal(total + 5)
+          setSize("scale(.9)")
         }
 
         if( value === 'Garlic'){
@@ -254,7 +300,7 @@ export default function CreateYourOwnPizza(props){
                 },
               )
               setValues(initailFormValues)
-              setTotal(0)
+              setTotal(15)
               setOlives(false)
               setMushrooms(false)
               setPepperoni(false)
@@ -271,6 +317,7 @@ export default function CreateYourOwnPizza(props){
 
     return(
         <LargeBox>
+      
           <Pizza  style={{transform: `${size}`}}>
 
         {extraCheddar ?
@@ -783,7 +830,7 @@ export default function CreateYourOwnPizza(props){
                     <RadioGroup aria-label="gender" name="size" value={values.size} onChange={handleChange}>
                     <RadioBox>
                         <FormControlLabel   value="Small" control={<Radio />} label="Small" />
-                        <FormControlLabel value="Medium" control={<Radio />} label="Medium" />
+                        <FormControlLabel  value="Medium" control={<Radio />} label="Medium" />
                         <FormControlLabel value="Large" control={<Radio />} label="Large" />
                         <FormControlLabel value="Extra-Large" control={<Radio />} label="Extra-Large" />
                     </RadioBox>
@@ -796,6 +843,7 @@ export default function CreateYourOwnPizza(props){
          <h3> Select a Crust Type</h3>
          <FormControl className={classes.formControl} >
         <Select
+          
           value={values.crust}
           onChange={handleChange}
           name="crust"
@@ -832,7 +880,7 @@ export default function CreateYourOwnPizza(props){
       />
          </ToppingBox>
          <ToppingBox>
-         <ToppingTitle> <h3> Toppings </h3></ToppingTitle>
+         <ToppingTitle> <h3> Toppings (+ .50 per topping) </h3></ToppingTitle>
          <ToppingsBox>
          <FormControlLabel
          className={classes.toppings}
@@ -842,12 +890,12 @@ export default function CreateYourOwnPizza(props){
                <FormControlLabel
                className={classes.toppings}
         control={<Checkbox checked={values.toppings.pepperoni} onChange={onCheckBoxChange} name="pepperoni" />}
-        label="Pepperoni (+ $.50)"
+        label="Pepperoni"
       />
                <FormControlLabel
                className={classes.toppings}
         control={<Checkbox checked={values.toppings.sausage} onChange={onCheckBoxChange} name="sausage" />}
-        label="Sausage (+ $.50)"
+        label="Sausage"
       />
                <FormControlLabel
                className={classes.toppings}

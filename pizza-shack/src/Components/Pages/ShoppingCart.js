@@ -51,7 +51,7 @@ export default function ShoppingCart(props){
                         <Title>{item.size} Pizza</Title>
                         </NameBox>
                         <DesBox>
-                        <Para>{item.size} {item.crust} crust Pizza, with {item.sauce} sauce,</Para>
+                        <Para>{item.size} {item.crust} crust Pizza with {item.sauce} sauce </Para>
                         {item.toppings.map(topping => {    
                             return(
                                 <div>

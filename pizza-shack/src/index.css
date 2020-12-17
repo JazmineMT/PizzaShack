@@ -1990,12 +1990,10 @@ background: #fff4aa;
 
 .pineapple {
   position: absolute;
-  width: 0;
-  height: 0;
-  border-radius: 20px;
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
-  border-bottom: 60px solid #ffd300;
+  width: 10%;
+  height: 7%;
+  border-radius: 15% 15% 100% 15%;
+  background-image: radial-gradient(circle at top left, #fff8b9, #ffff00);
   box-shadow: 0px 0px 0px #ffd700;
   margin: 250px 0 0 400px;
   z-index: 30;
@@ -2175,10 +2173,10 @@ background: #fff4aa;
 
 .jalepenos {
   position: absolute;
-  width: 60px;
-  height: 60px;
-  border-radius: 50px;
-  background: #548042	;
+  width: 8%;
+  height: 8%;
+  border-radius: 50%;
+  background-image: radial-gradient(circle, #fcfcfc, #b8db9b 25%, transparent 25%, transparent 48%, #399913 50%, #16571c);
   border: 5px solid #3B5323;
   box-shadow: 2px 2px 2px #3B5323;
   margin: 250px 0 0 400px;
