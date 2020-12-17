@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useRef, useEffect} from 'react'
 import { useHistory } from "react-router-dom";
 import { BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-dom'
 import LandingPage from './Components/Pages/LandingPage'
@@ -60,6 +60,13 @@ function App() {
   let history = useHistory();
   const [cart , setCart] = useState([]) 
   const [anchorEl, setAnchorEl] = useState(null);
+  const ContainerRef = useRef(null);
+
+  useEffect(() => {
+      ContainerRef.current.click()
+  }, [])
+    
+
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -92,7 +99,7 @@ function App() {
         aria-controls="customized-menu"
         aria-haspopup="true"
         variant="contained"
-        className='button'
+        class='button nav-button'
         color="primary"
         onClick={handleClick}
       >
@@ -129,9 +136,9 @@ function App() {
       </StyledMenuItem>
       </StyledMenu>
         
-        <button   className='button'><NavLink className='linkb' exact to='/home'>Home</NavLink></button>
-          <button   className='button'> <NavLink className='linkb' exact to='/deals'>Deals</NavLink> </button>
-           <button  className='button'> <NavLink className='linkb' exact to='/cart'><div> My Cart ({cart.length})</div></NavLink></button>
+        <button   className='button nav-button'><NavLink  ref ={ContainerRef} className='linkb' exact to='/home'>Home</NavLink></button>
+          <button   className='button  nav-button'> <NavLink className='linkb' exact to='/deals'>Deals</NavLink> </button>
+           <button  className='button nav-button'> <NavLink className='linkb' exact to='/cart'><div> My Cart ({cart.length})</div></NavLink></button>
         </div>
         </div>
         <div className="secondHeader">

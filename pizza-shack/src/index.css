@@ -88,6 +88,7 @@ footer{
 
 .link{
   text-decoration: none;
+  color: #EBE7D9;
 }
 
 .signIn{
@@ -174,6 +175,11 @@ footer{
   text-align:center;
   position:relative;
   width: 100%;
+}
+
+.nav-button{
+  background-color:transparent;
+  
 }
 
 .button:hover{
