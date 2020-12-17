@@ -72,6 +72,7 @@ export default function CreateYourOwnPizza(props){
     const [pineapple , setPineapple] = useState(false)
     const [greenPeppers , setGreenPeppers] = useState(false)
     const [jalepenos , setJalepenos] = useState(false)
+    const [extraCheddar , setExtraCheddar] = useState(false)
 
 
 
@@ -129,8 +130,10 @@ export default function CreateYourOwnPizza(props){
 
         if(checked === true){
             setTotal(total + 1.50)
+            setExtraCheddar(true)
         }else if(checked === false){
             setTotal(total - 1.50)
+            setExtraCheddar(false)
         }
         
         setValues({
@@ -260,6 +263,7 @@ export default function CreateYourOwnPizza(props){
               setPineapple(false)
               setGreenPeppers(false)
               setJalepenos(false)
+              setExtraCheddar(false)
             
 
               
@@ -269,6 +273,33 @@ export default function CreateYourOwnPizza(props){
         <LargeBox>
           <Pizza  style={{transform: `${size}`}}>
 
+        {extraCheddar ?
+          <>
+                    <section class="extraCheese one"></section>
+      <section class="extraCheese two"></section>
+      <section class="extraCheese three"></section>
+      <section class="extraCheese four"></section>
+      <section class="extraCheese five"></section>
+      <section class="extraCheese six"></section>
+      <section class="extraCheese seven"></section>
+      <section class="extraCheese eight"></section>
+      <section class="extraCheese nine"></section>
+      <section class="extraCheese ten"></section>
+
+      <section class="extraCheese eleven"></section>
+      <section class="extraCheese twelve"></section>
+      <section class="extraCheese thirteen"></section>
+      <section class="extraCheese fourteen"></section>
+      <section class="extraCheese fifteen"></section>
+      <section class="extraCheese sixteen"></section>
+      <section class="extraCheese seventeen"></section>
+      <section class="extraCheese eightteen"></section>
+      <section class="extraCheese nineteen"></section>
+      <section class="extraCheese twenty"></section>
+      <section class="extraCheese twenty-one"></section>
+
+          </>
+        : null}        
 
         {jalepenos ? 
         <>

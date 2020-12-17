@@ -2355,11 +2355,180 @@ background: #fff4aa;
   transform: rotate(-27deg);
 }
 
-.pizza{
+.extraCheese {
   position: absolute;
-
+  width: 10px;
+  height: 75px;
+  background: #ffbf00;
+  box-shadow: 2px 2px 2px #ffd24d;
+  margin: 250px 0 0 400px;
+  z-index: 30;
 }
-.pizza-sticky {
-  position: fixed;
-  animation: moveDown 0.5s ease-in-out;
+
+.extraCheese.one {
+  margin: 250px 0 0 150px;
+  -webkit-transform: rotate(22deg);
+  -moz-transform: rotate(22deg);
+  -o-transform: rotate(22deg);
+  transform: rotate(22deg);
+}
+
+.extraCheese.two {
+  margin: 400px 0 0 500px;
+  -webkit-transform: rotate(-47deg);
+  -moz-transform: rotate(-47deg);
+  -o-transform: rotate(-47deg);
+  transform: rotate(-47deg);
+}
+
+.extraCheese.three {
+  margin: 250px 0 0 230px;
+  -webkit-transform: rotate(115deg);
+  -moz-transform: rotate(115deg);
+  -o-transform: rotate(115deg);
+  transform: rotate(115deg);
+}
+
+.extraCheese.four {
+  margin: 100px 0 0 400px;
+  -webkit-transform: rotate(67deg);
+  -moz-transform: rotate(67deg);
+  -o-transform: rotate(67deg);
+  transform: rotate(67deg);
+}
+
+.extraCheese.five {
+  margin: 450px 0 0 300px;
+  -webkit-transform: rotate(-86deg);
+  -moz-transform: rotate(-86deg);
+  -o-transform: rotate(-86deg);
+  transform: rotate(-86deg);
+}
+
+.extraCheese.six {
+  margin: 250px 0 0 90px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.extraCheese.seven {
+  margin: 380px 0 0 330px;
+  -webkit-transform: rotate(-47deg);
+  -moz-transform: rotate(-47deg);
+  -o-transform: rotate(-47deg);
+  transform: rotate(-47deg);
+}
+
+.extraCheese.eight {
+  margin: 430px 0 0 150px;
+  -webkit-transform: rotate(115deg);
+  -moz-transform: rotate(115deg);
+  -o-transform: rotate(115deg);
+  transform: rotate(115deg);
+}
+
+.extraCheese.nine {
+  margin: 200px 0 0 200px;
+  -webkit-transform: rotate(67deg);
+  -moz-transform: rotate(67deg);
+  -o-transform: rotate(67deg);
+  transform: rotate(67deg);
+}
+
+.extraCheese.ten {
+  margin: 500px 0 0 200px;
+  -webkit-transform: rotate(289deg);
+  -moz-transform: rotate(289deg);
+  -o-transform: rotate(289deg);
+  transform: rotate(289deg);
+}
+
+.extraCheese.eleven {
+  margin: 350px 0 0 200px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.extraCheese.twelve {
+  margin: 300px 0 0 200px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.extraCheese.thirteen {
+  margin: 150px 0 0 200px;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.extraCheese.fourteen {
+  margin: 110px 0 0 300px;
+  -webkit-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+  -o-transform: rotate(10deg);
+  transform: rotate(10deg);
+}
+
+.extraCheese.fifteen {
+  margin: 520px 0 0 290px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.extraCheese.sixteen {
+  margin: 350px 0 0 410px;
+  -webkit-transform: rotate(50deg);
+  -moz-transform: rotate(50deg);
+  -o-transform: rotate(50deg);
+  transform: rotate(50deg);
+}
+
+.extraCheese.seventeen {
+  margin: 460px 0 0 510px;
+  -webkit-transform: rotate(80deg);
+  -moz-transform: rotate(80deg);
+  -o-transform: rotate(80deg);
+  transform: rotate(80deg);
+}
+
+.extraCheese.eightteen {
+  margin: 400px 0 0 410px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.extraCheese.nineteen {
+  margin: 180px 0 0 490px;
+  -webkit-transform: rotate(150deg);
+  -moz-transform: rotate(150deg);
+  -o-transform: rotate(150deg);
+  transform: rotate(150deg);
+}
+
+.extraCheese.twenty {
+  margin: 430px 0 0 420px;
+  -webkit-transform: rotate(-100deg);
+  -moz-transform: rotate(-100deg);
+  -o-transform: rotate(-100deg);
+  transform: rotate(-100deg);
+}
+
+.extraCheese.twenty-one {
+  margin: 160px 0 0 340px;
+  -webkit-transform: rotate(69deg);
+  -moz-transform: rotate(69deg);
+  -o-transform: rotate(69deg);
+  transform: rotate(69deg);
 }
