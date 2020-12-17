@@ -48,7 +48,11 @@ export default function Register(props){
 const [values , setValues] = useState(initailFormValues)
 const [formErrors , setFormErrors] = useState(initailFormErrors)
 const classes = useStyles();
+    const onClick = (evt) => {
 
+        setValues(initailFormValues)
+        setFormErrors(initailFormErrors)
+    }
     const handleChange = (evt) => {
         const {name , value} = evt.target
 
@@ -190,7 +194,7 @@ const classes = useStyles();
 
             </YourInfo>
             <ButtonBox className='buttonBox'>
-                <buton className='button'> Create Account</buton>
+                <buton  onClick ={onClick}className='button'> Create Account</buton>
             </ButtonBox>
             </Container2>
 

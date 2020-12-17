@@ -31,6 +31,15 @@ body {
   text-decoration: none;
   color: white
 }
+.hidden{
+ opacity:0;
+}
+
+.hidden:hover{
+cursor: pointer;
+opacity: 1;
+}
+
 
 .first{
 display: flex;
@@ -267,6 +276,7 @@ footer{
   width: 50vw;
   height: 800px;
   font-size: 3rem;
+  cursor: pointer;
 }
 .pizzaLink:hover{
   padding-top:2% ;
@@ -280,7 +290,8 @@ footer{
   background-position: center;
   width: 50vw;
   height: 800px;
-  font-size: 3rem
+  font-size: 3rem;
+  cursor: pointer;
 }
 
 
@@ -296,6 +307,7 @@ footer{
   background-position: center;
   width: 50vw;
   height: 800px;
+  cursor: pointer;
 }
 
 .wingsLink:hover{
@@ -310,6 +322,7 @@ footer{
   background-position: center;
   width: 50vw;
   height: 800px;
+  cursor: pointer;
 
 }
 .sidesLink{
@@ -324,6 +337,7 @@ footer{
   background-position: center;
   width: 50vw;
   height: 800px;
+  cursor: pointer;
 }
 .sidesLink:hover{
   padding-top:2% ;
@@ -337,6 +351,7 @@ footer{
   background-position: center;
   width: 50vw;
   height: 800px;
+  cursor: pointer;
 }
 .pastaLink{
   padding-top:2% ;
@@ -350,6 +365,7 @@ footer{
   background-position: center;
   width: 50vw;
   height: 800px;
+  cursor: pointer;
 }
 .pastaLink:hover{
   padding-top:2% ;
@@ -363,6 +379,7 @@ footer{
   background-position: center;
   width: 50vw;
   height: 800px;
+  cursor: pointer;
 }
 .dessertLink{
   font-size: 3rem;
@@ -376,6 +393,8 @@ footer{
   width: 50vw;
   height: 800px;
   padding-top:2% ;
+  cursor: pointer;
+
 }
 
 .dessertLink:hover{
@@ -390,6 +409,8 @@ footer{
   width: 50vw;
   height: 800px;
   padding-top:2% ;
+  cursor: pointer;
+
 }
 .drinksLink{
   padding-top:2% ;
@@ -403,6 +424,8 @@ footer{
   background-position: center;
   width: 50vw;
   height: 800px;
+  cursor: pointer;
+
 
 }
 
@@ -418,6 +441,8 @@ footer{
   background-position: center;
   width: 50vw;
   height: 800px;
+  cursor: pointer;
+
 
 }
 .boxedMenu{
@@ -486,6 +511,8 @@ height: 800px;
   width: 50vw;
   height: 800px;
 }
+
+
 .menuLink{
   font-size: 4rem;
   font-family: 'Yellowtail', cursive
@@ -2530,3 +2557,4 @@ background: #fff4aa;
   -o-transform: rotate(69deg);
   transform: rotate(69deg);
 }
+

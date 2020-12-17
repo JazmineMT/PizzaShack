@@ -24,6 +24,11 @@ export default function ShoppingCart(props){
 
         
     }
+
+    function refreshPage() {
+        window.location.reload(false);
+      }
+
     const remove = (item) => {
         
         props.remove(item)
@@ -108,8 +113,7 @@ export default function ShoppingCart(props){
                 <Last>
                     
                 <Buttons className='btnBox'>
-                    <button  className='button'> Add More Food</button>
-                    <button  className='button'> Checkout</button>
+                    <button onClick={refreshPage} className='button'> Checkout</button>
                 </Buttons>
                 <Total>
 
