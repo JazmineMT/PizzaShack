@@ -91,6 +91,10 @@ footer{
   color: #EBE7D9;
 }
 
+.menu-link{
+  color: black;
+}
+
 .signIn{
   text-decoration: none;
   color: #0F222D;
@@ -2349,4 +2353,13 @@ background: #fff4aa;
   -moz-transform: rotate(-27deg);
   -o-transform: rotate(-27deg);
   transform: rotate(-27deg);
+}
+
+.pizza{
+  position: absolute;
+
+}
+.pizza-sticky {
+  position: fixed;
+  animation: moveDown 0.5s ease-in-out;
 }

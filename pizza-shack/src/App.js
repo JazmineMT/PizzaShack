@@ -114,25 +114,25 @@ function App() {
       >
         <StyledMenuItem>
 
-        <NavLink className='link' exact to='/pizza'>Pizza</NavLink>
+        <NavLink className='link menu-link' exact to='/pizza'>Pizza</NavLink>
         </StyledMenuItem>
         <StyledMenuItem>
-        <NavLink className='link' exact to='/wings'>Wings</NavLink>
+        <NavLink className='link menu-link' exact to='/wings'>Wings</NavLink>
         </StyledMenuItem>
         <StyledMenuItem>
-        <NavLink className='link' exact to='/sides'>Sides</NavLink> 
+        <NavLink className='link menu-link' exact to='/sides'>Sides</NavLink> 
         </StyledMenuItem>
         <StyledMenuItem>
-        <NavLink className='link' exact to='/pasta'>Pasta</NavLink>
+        <NavLink className='link menu-link' exact to='/pasta'>Pasta</NavLink>
         </StyledMenuItem>
         <StyledMenuItem>
-        <NavLink className='link' exact to='/dessert'>Dessert</NavLink> 
+        <NavLink className='link menu-link' exact to='/dessert'>Dessert</NavLink> 
         </StyledMenuItem>
         <StyledMenuItem>
-        <NavLink className='link' exact to='/drinks'>Drinks</NavLink>
+        <NavLink className='link menu-link' exact to='/drinks'>Drinks</NavLink>
         </StyledMenuItem>
         <StyledMenuItem>
-        <NavLink className='link' exact to='/locationfinder'> Pizza Shack Finder</NavLink> 
+        <NavLink className='link menu-link' exact to='/locationfinder'> Pizza Shack Finder</NavLink> 
       </StyledMenuItem>
       </StyledMenu>
         

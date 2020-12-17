@@ -72,8 +72,9 @@ export const Pizza = styled.div `
     margin: 15px auto;
     width: 50%;
     height: 50%;
- 
-    position: relative;
+   position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
 `
 
 
