@@ -77,8 +77,11 @@ let isVisible = true;
 	}
 
 	const onClick = (evt) => {
-		setShowinfoWindow(isVisible)
-		isVisible = !isVisible
+		if(showinfoWindow === false){
+			setShowinfoWindow(true )
+		}else{
+			setShowinfoWindow(false)
+		}
 	}
 
 

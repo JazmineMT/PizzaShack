@@ -24,7 +24,7 @@ export const ToppingTitle = styled.div `
 `
 
 export const ToppingBox = styled.div `
-width: 60%;
+width: 100%;
 padding: 5%; 
 
 `
@@ -32,8 +32,7 @@ padding: 5%;
 
 export const LargeBox = styled.div `
 display:flex;
-flex-direction:column;
-align-items: center;
+justify-content: space-around;
 
 `
 
@@ -65,5 +64,25 @@ export const Boxes = styled.div `
 display: flex;
 justify-content: space-around;
 padding-top: 5%;
+
+`
+
+export const Pizza = styled.div ` 
+  transform: scale(.8);
+    margin: 15px auto;
+    width: 50%;
+    height: 50%;
+ 
+    position: relative;
+`
+
+
+export const Container = styled.div `
+width: 50%;
+display: flex;
+flex-direction: column;
+justify-content:center;
+
+
 
 `

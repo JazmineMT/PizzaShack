@@ -7,7 +7,7 @@ import {ContentBox, IMG, Container, IMGBox,  PBox} from '../styles/AboutUsStyles
 export default function AboutUs(props){
     return (
         <>
-        <h1> Here's Our Story</h1>
+        <h1 className='pageTitle'> Here's Our Story</h1>
         <Container>
             <ContentBox>
                 <IMGBox>
