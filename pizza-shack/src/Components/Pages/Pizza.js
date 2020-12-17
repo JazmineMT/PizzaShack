@@ -1,17 +1,27 @@
-import React from 'react'
+import React , {useEffect, useRef}from 'react'
+import { useHistory} from "react-router-dom";
 import {pizzas} from '../Data/data'
 import { BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-dom'
 import PopularPizza from './PopularPizza'
 import CreateYourOwnPizza from './CreateYourOwnPizza'
 import {NavBox, Line} from '../styles/PizzaStyles'
+import { Container } from '../styles/RegisterStyles';
 
 export default function Pizza(props){
+    const ContainerRef = useRef(null);
+    let history = useHistory();
+
+    useEffect(() => {
+        ContainerRef.current.click()
+    }, [])
+      
+    
     return(
         <div>
             <h1 className='pageTitle'>Pizza</h1>
             <Router>
                 <NavBox>
-            <NavLink className='pizzalink' exact to='/popularpizza'>Popular Pizza's </NavLink>
+            <NavLink ref ={ContainerRef} className='pizzalink' exact to='/popularpizza'>Popular Pizza's </NavLink>
             <Line></Line>
             <NavLink className='pizzalink' exact to='/createpizza'> Create Your Own </NavLink>
             </NavBox>

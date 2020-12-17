@@ -16,14 +16,16 @@ width: 100%;
 `
 
 export const Container = styled.div `
-border: solid .5px #cfcecc;
+background-color: #FFF5D0 ;
 display: flex;
 justify-content: center;
 margin: 8%;
 width: auto;
+border-radius: 15px;
 
 `
 export const Container2 = styled.div `
+color: #0F222D;
 width: 100%;
 padding: 3%;
 

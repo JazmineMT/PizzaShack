@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import {useState,  useRef , useEffect} from 'react'
-import {FinderBox, SearchBox, MapBox, PlacesBox} from '../styles/LocationStyles'
+import {FinderBox, SearchBox, MapBox, PlacesBox, Marker,InfoWindow, InfoContent} from '../styles/LocationStyles'
 import {TextField , Button, FormControl} from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import mapboxgl from 'mapbox-gl';
@@ -10,6 +10,11 @@ import {places} from '../Data/data'
 import LocationFinderCard from '../Cards/LocationFinderCard'
 import { red } from '@material-ui/core/colors'
 import GoogleMapReact from "google-map-react";
+
+import LocalPizzaIcon from '@material-ui/icons/LocalPizza';
+
+
+
  
 
 const useStyles = makeStyles((theme) => ({
@@ -24,53 +29,20 @@ const useStyles = makeStyles((theme) => ({
         width: '30%',
     }
   }));
-// const location = {latitude: 39.8283, longitude: -98.5556,}
+
 
 
 export default function LocationFinder(props) {
 const [search  , setSearch] = useState('')
+const [showinfoWindow, setShowinfoWindow] = useState(false)
 const [ filter , SetFilter] = useState(places)
 const [location , setLocation] = useState(null)
+const [Id , setId] = useState(null)
 const [prev  ,setPrev] = useState(null)
 const classes = useStyles();
 const mapContainerRef = useRef(null);
 
-	mapboxgl.accessToken = 'pk.eyJ1IjoiamF6bWluZW10IiwiYSI6ImNraWpwbml5eDAyOTAycW54cWgxZHFheGcifQ.0JeJIdscyx6LSjhQHhvivw'
-        useEffect(() => {
-
-    // const map = new mapboxgl.Map({
-	//   container: 'map',
-	//   style: 'mapbox://styles/mapbox/streets-v11',
-    //   // See style options here: https://docs.mapbox.com/api/maps/#styles
-    //   center: [location.longitude, location.latitude],
-    //   zoom: 3,
-	// 	})
-	// 	map.on('load', async () => {
-	// 		// iterate through the feature collection and append marker to the map for each feature
-	// 		places.map(result => {
-	// 		console.log(result)
-			
-	// 		var popup = new mapboxgl.Popup({offset: 15, className: 'my-class'}).setHTML(
-	// 			'<h1>'+ result.name + '</h1><h4>' + result.fullAdd + '</h4> <h4>' + result.phone + '</h4> <h4>' + result.hours + '</h4>' 
-	// 		)
-
-	// 		var marker = new mapboxgl.Marker({
-	// 			color: 'red',
-	// 			draggable: false
-	// 			}).setLngLat([result.long,result.lat])
-	// 			.setPopup(popup) // sets a popup on this marker
-	// 			.addTo(map);
-	// 		})
-	// 	})
-    //     // add navigation control (the +/- zoom buttons)
-    //     map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
-	// 	map.resize();
-		
-      
-		
-		
-      }, []);
-
+let isVisible = true; 
 
     const getLoc = async (e) => {
 		e.preventDefault()
@@ -84,35 +56,8 @@ const mapContainerRef = useRef(null);
 			setPrev(location)
          results.map(item => {
 			setLocation({latitude: item. geometry.location.lat, longitude: item.geometry.location.lng})
-			// const map = new mapboxgl.Map({
-			// 	container: 'map',
-			// 	style: 'mapbox://styles/mapbox/streets-v11',
-			// 	center: [item.geometry.location.lng, item.geometry.location.lat],
-			// 	zoom: 10,
-			//   });
-			//   map.on('load', async () => {
-			// 	// iterate through the feature collection and append marker to the map for each feature
-			// 	places.map(result => {
-			// 		var popup = new mapboxgl.Popup({offset: 15, className: 'my-class'}).setHTML(
-			// 			'<h1>'+ result.name + '</h1><h4>' + result.fullAdd + '</h4> <h4>' + result.phone + '</h4> <h4>' + result.hours + '</h4>' 
-			// 		)
-		
-			// 	var marker = new mapboxgl.Marker({
-			// 		color: 'red',
-			// 		draggable: false
-			// 		}).setLngLat([result.long,result.lat])
-			// 		.setPopup(popup) // sets a popup on this marker
-			// 		.addTo(map);
-			// 	})
-			// })
-			// 	  // add navigation control (the +/- zoom buttons)
-			// 	  map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
-		  
-			// 	  // clean up on unmount
-			// 	  return () => map.remove();
 		 })
-		 console.log(prev)
-		 console.log(location)
+
 		if(search.length === 5){
 			const filteredZip = places.filter((place) => place.zipCode == search )
 			SetFilter(filteredZip)
@@ -131,6 +76,13 @@ const mapContainerRef = useRef(null);
 
 	}
 
+	const onClick = (evt) => {
+		if(showinfoWindow === false){
+			setShowinfoWindow(true )
+		}else{
+			setShowinfoWindow(false)
+		}
+	}
 
 
     const handleChange = (evt) => {
@@ -138,7 +90,8 @@ const mapContainerRef = useRef(null);
 
         setSearch(value);
       };
- 
+	  
+	  console.log(showinfoWindow)
 
 
     return (
@@ -170,7 +123,40 @@ const mapContainerRef = useRef(null);
 						region: "US"
 						}}
 						defaultCenter={{ lat: 39.8283, lng: -98.5556 }}
-						defaultZoom={4}/>
+						defaultZoom={4}
+						>
+						{places.map(point => (
+						<Marker
+						id = {point.id}
+						lat={point.lat}
+						lng={point.long}
+						color='red'
+						name='Pizza Shack'
+						text='Hello'
+						onClick={onClick}
+						isdraggable={true}
+
+						>
+						
+						{
+							Marker.id === InfoWindow.id && showinfoWindow ? 
+							<InfoWindow
+							id={point.id} >
+							<InfoContent>
+								<h1>Pizza Shack</h1>
+								<h2>{point.fullAdd}</h2>
+								<h2>{point.phone}</h2>
+								<h2>{point.hours}</h2>
+							</InfoContent> 
+								</InfoWindow>
+								 : null
+						}
+					
+						<LocalPizzaIcon style={{ color: red[500] ,  fontSize: 40}} />
+						</Marker>
+					))}
+						
+						</GoogleMapReact>
 
 
 				)}
@@ -183,7 +169,42 @@ const mapContainerRef = useRef(null);
 					region: "US"
 					}}
 					defaultCenter={{ lat: location.latitude, lng: location.longitude }}
-					defaultZoom={12}/>
+					defaultZoom={12}
+				
+					>
+
+					{places.map(point => (
+						<Marker
+						id = {point.id}
+						lat={point.lat}
+						lng={point.long}
+						color='red'
+						name='Pizza Shack'
+						text='Hello'
+						onClick={onClick}
+						isdraggable={true}
+
+						>
+						
+						{
+							Marker.id === InfoWindow.id && showinfoWindow ? 
+							<InfoWindow
+							id={point.id} >
+							<InfoContent>
+								<h1>Pizza Shack</h1>
+								<h2>{point.fullAdd}</h2>
+								<h2>{point.phone}</h2>
+								<h2>{point.hours}</h2>
+							</InfoContent> 
+								</InfoWindow>
+								 : null
+						}
+					
+						<LocalPizzaIcon style={{ color: red[500] ,  fontSize: 40}} />
+						</Marker>
+					))}
+					</GoogleMapReact>
+					
 
 				)}
 			</MapBox>

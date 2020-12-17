@@ -1,5 +1,5 @@
 import React ,{useState} from 'react'
-import {ToppingTitle, ToppingBox, LargeBox, ButtonAndTotal, Box, RadioBox, ToppingsBox, Boxes} from '../styles/PizzaStyles'
+import {ToppingTitle, ToppingBox, LargeBox, ButtonAndTotal, Box, RadioBox, ToppingsBox, Boxes, Pizza, Container} from '../styles/PizzaStyles'
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -29,7 +29,7 @@ const initailFormValues = {
       sausage: false,
       onions: false,
       pineapple:false,
-      spinach: false,
+      greenPeppers: false,
       olives: false,
       jalepenos: false
     },
@@ -60,31 +60,59 @@ export default function CreateYourOwnPizza(props){
     const classes = useStyles();
     const [values, setValues] = useState(initailFormValues);
     const [total, setTotal] = useState(0);
+    const [size , setSize] = useState("scale(.7)")
+    const [crust , setCrust] = useState("Regular")
+    const [sauce , setSauce ] = useState("Marinara")
     const item = [values, total]
+    const [olives , setOlives] = useState(false)
+    const [mushrooms , setMushrooms] = useState(false)
+    const [pepperoni , setPepperoni] = useState(false)
+    const [sausage , setSausage] = useState(false)
+    const [onions , setOnions] = useState(false)
+    const [pineapple , setPineapple] = useState(false)
+    const [greenPeppers , setGreenPeppers] = useState(false)
+    const [jalepenos , setJalepenos] = useState(false)
 
-    
+
     const handleChange = (evt) => {
         const {name , value} = evt.target
   
         
+      if(value === 'Marinara'){
+        setSauce('Marinara')
+      }else if( value === 'White'){
+        setSauce('White')
+      }else if(value === 'BBQ'){
+        setSauce('BBQ')
+      }else if( value === 'Buffalo'){
+        setSauce('Buffalo')
+      }
+
+
         if( value === 'Small'){
             setTotal(10)
+            setSize("scale(.6)")
         }else if(value === 'Medium'){
             setTotal(15)
+            setSize("scale(.7)")
         }else if(value === 'Large'){
             setTotal(20)
+            setSize("scale(.8)")
         }
         else if( value === 'Extra-Large'){
             setTotal(25)
+            setSize("scale(.9)")
         }
 
-        // if( value === 'Garlic'){
-        //     setTotal(total + .50)
-        // }else if(value === 'Pretzel'){
-        //     setTotal(total + 1)
-        // }else if(value === 'Cheese Filled'){
-        //     setTotal(total + 2 )
-        // }
+        if( value === 'Garlic'){
+            setCrust("Garlic")
+        }else if(value === 'Pretzel'){
+          setCrust("Pretzel")
+        }else if(value === 'Cheese Filled'){
+          setCrust("Regular")
+        }else if(value === 'Regular'){
+          setCrust("Regular")
+        }
 
 
         setValues({
@@ -121,7 +149,80 @@ export default function CreateYourOwnPizza(props){
             }else if( name === 'pepperoni' && checked === false || 'sausage' && checked === false){
                 setTotal(total - .50)
             }
-            
+
+
+            if (name === 'olives' && olives === false){
+              setOlives(true)
+              
+            }else if (name === 'olives' && olives === true){
+              setOlives(false)
+            }
+
+            if (name === 'mushroom' && mushrooms === false){
+              setMushrooms(true)
+              
+            }else if (name === 'mushroom' && mushrooms=== true){
+              setMushrooms(false)
+            }
+
+            if (name === 'pepperoni' && pepperoni === false){
+              setPepperoni(true)
+              
+            }else if (name === 'pepperoni' && pepperoni === true){
+              setPepperoni(false)
+            }
+
+            if (name === 'sausage' && sausage === false){
+              setSausage(true)
+              
+            }else if (name === 'sausage' && sausage === true){
+              setSausage(false)
+            }
+
+            if (name === 'onions' && onions === false){
+              setOnions(true)
+              
+            }else if (name === 'onions' && onions === true){
+              setOnions(false)
+            }
+
+            if (name === 'pineapple' && pineapple === false){
+              setPineapple(true)
+              
+            }else if (name === 'pineapple' && pineapple === true){
+              setPineapple(false)
+            }
+
+            if (name === 'greenPeppers' && greenPeppers === false){
+              setGreenPeppers(true)
+              
+            }else if (name === 'greenPeppers' && greenPeppers === true){
+              setGreenPeppers(false)
+            }
+
+            if (name === 'jalepenos' && jalepenos === false){
+              setJalepenos(true)
+              
+            }else if (name === 'jalepenos' && jalepenos === true){
+              setJalepenos(false)
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             setValues({
                 ...values,
                 toppings: {
@@ -150,11 +251,500 @@ export default function CreateYourOwnPizza(props){
               )
               setValues(initailFormValues)
               setTotal(0)
+              setOlives(false)
+              setMushrooms(false)
+              setPepperoni(false)
+              setSausage(false)
+              setOnions(false)
+              setPineapple(false)
+              setGreenPeppers(false)
+              setJalepenos(false)
+            
+
               
             }
 
     return(
         <LargeBox>
+          <Pizza  style={{transform: `${size}`}}>
+
+
+        {jalepenos ? 
+        <>
+          <section class="jalepenos one"></section>
+          <section class="jalepenos two"></section>
+          <section class="jalepenos three"></section>
+          <section class="jalepenos four"></section>
+          <section class="jalepenos five"></section>
+          <section class="jalepenos six"></section>
+          <section class="jalepenos seven"></section>
+          <section class="jalepenos eight"></section>
+          <section class="jalepenos nine"></section>
+          <section class="jalepenos ten"></section>
+
+          <section class="jalepenos eleven"></section>
+          <section class="jalepenos twelve"></section>
+          <section class="jalepenos thirteen"></section>
+          <section class="jalepenos fourteen"></section>
+          <section class="jalepenos fifteen"></section>
+          <section class="jalepenos sixteen"></section>
+          <section class="jalepenos seventeen"></section>
+          <section class="jalepenos eightteen"></section>
+          <section class="jalepenos nineteen"></section>
+          <section class="jalepenos twenty"></section>
+          <section class="jalepenos twenty-one"></section>
+
+        </>
+      : null}    
+      
+        {onions ? 
+        <>
+        <section class="onions one"></section>
+      <section class="onions two"></section>
+      <section class="onions three"></section>
+      <section class="onions four"></section>
+      <section class="onions five"></section>
+      <section class="onions six"></section>
+      <section class="onions seven"></section>
+      <section class="onions eight"></section>
+      <section class="onions nine"></section>
+      <section class="onions ten"></section>
+
+      <section class="onions eleven"></section>
+      <section class="onions twelve"></section>
+      <section class="onions thirteen"></section>
+      <section class="onions fourteen"></section>
+      <section class="onions fifteen"></section>
+      <section class="onions sixteen"></section>
+      <section class="onions seventeen"></section>
+      <section class="onions eightteen"></section>
+      <section class="onions nineteen"></section>
+      <section class="onions twenty"></section>
+      <section class="onions twenty-one"></section>
+
+        </>
+      
+          : null }
+
+      { olives ? 
+      <>
+            <section class="olives one"></section>
+            <section class="olives two"></section>
+            <section class="olives three"></section>
+            <section class="olives four"></section>
+            <section class="olives five"></section>
+            <section class="olives six"></section>
+            <section class="olives seven"></section>
+            <section class="olives eight"></section>
+            <section class="olives nine"></section>
+            <section class="olives ten"></section>
+
+            <section class="olives eleven"></section>
+            <section class="olives twelve"></section>
+            <section class="olives thirteen"></section>
+            <section class="olives fourteen"></section>
+            <section class="olives fifteen"></section>
+            <section class="olives sixteen"></section>
+            <section class="olives seventeen"></section>
+            <section class="olives eightteen"></section>
+            <section class="olives nineteen"></section>
+            <section class="olives twenty"></section>
+
+            <section class="olives twenty-one"></section> 
+        </>
+      :null }
+
+
+          { greenPeppers ?
+          <>
+          <section class="green-pepper one"></section>
+      <section class="green-pepper two"></section>
+      <section class="green-pepper three"></section>
+      <section class="green-pepper four"></section>
+      <section class="green-pepper five"></section>
+      <section class="green-pepper six"></section>
+      <section class="green-pepper seven"></section>
+      <section class="green-pepper eight"></section>
+      <section class="green-pepper nine"></section>
+      <section class="green-pepper ten"></section>
+
+      <section class="green-pepper eleven"></section>
+      <section class="green-pepper twelve"></section>
+      <section class="green-pepper thirteen"></section>
+      <section class="green-pepper fourteen"></section>
+      <section class="green-pepper fifteen"></section>
+      <section class="green-pepper sixteen"></section>
+      <section class="green-pepper seventeen"></section>
+      <section class="green-pepper eightteen"></section>
+      <section class="green-pepper nineteen"></section>
+      <section class="green-pepper twenty"></section>
+
+      <section class="green-pepper twenty-one"></section>
+          </>  
+        
+        
+        :null }
+    
+    
+      { mushrooms ?
+      
+        <>
+         <section class="mushroom one">
+        <div class="cap">1</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom two">
+        <div class="cap">2</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom three">
+        <div class="cap">3</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom four">
+        <div class="cap">4</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom five">
+        <div class="cap">5</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom six">
+        <div class="cap">6</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom seven">
+        <div class="cap">7</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom eight">
+        <div class="cap">8</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom nine">
+        <div class="cap">9</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom ten">
+        <div class="cap">10</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom eleven">
+        <div class="cap">11</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom twelve">
+        <div class="cap">12</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom thirteen">
+        <div class="cap">13</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom fourteen">
+        <div class="cap">14</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom fifteen">
+        <div class="cap">15</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom sixteen">
+        <div class="cap">16</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom seventeen">
+        <div class="cap">17</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom eighteen">
+        <div class="cap">18</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom nineteen">
+        <div class="cap">19</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom twenty">
+        <div class="cap">20</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom twenty-one">
+        <div class="cap">21</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom twenty-two">
+        <div class="cap">22</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom twenty-three">
+        <div class="cap">23</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom twenty-four">
+        <div class="cap">24</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom twenty-five">
+        <div class="cap">25</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom twenty-six">
+        <div class="cap">26</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom twenty-seven">
+        <div class="cap">27</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom twenty-eight">
+        <div class="cap">28</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom twenty-nine">
+        <div class="cap">29</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom thirty">
+        <div class="cap">30</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom thirty-one">
+        <div class="cap">31</div>
+        <div class="stem"></div>
+      </section>
+
+      <section class="mushroom thirty-two">
+        <div class="cap">31</div>
+        <div class="stem"></div>
+      </section>
+        </>
+    
+          : null  }
+
+        {pepperoni ? 
+          <>
+            <section class="pep one">1</section>
+      <section class="pep two">2</section>
+      <section class="pep three">3</section>
+      <section class="pep four">4</section>
+      <section class="pep five">5</section>
+      <section class="pep six">6</section>
+      <section class="pep seven">7</section>
+      <section class="pep eight">8</section>
+      <section class="pep nine">9</section>
+      <section class="pep ten">10</section>
+
+      <section class="pep eleven">11</section>
+      <section class="pep twelve">12</section>
+      <section class="pep thirteen">13</section>
+      <section class="pep fourteen">14</section>
+      <section class="pep fifteen">15</section>
+      <section class="pep sixteen">16</section>
+      <section class="pep seventeen">17</section>
+      <section class="pep eightteen">18</section>
+      <section class="pep nineteen">19</section>
+      <section class="pep twenty">20</section>
+
+      <section class="pep twenty-one">21</section>
+      <section class="pep twenty-two">22</section>
+      <section class="pep twenty-three">23</section>
+      <section class="pep twenty-four">24</section>
+      <section class="pep twenty-five">25</section>
+      <section class="pep twenty-six">26</section>
+      <section class="pep twenty-seven">27</section>
+      <section class="pep twenty-eight">28</section>
+      <section class="pep twenty-nine">29</section>
+      <section class="pep thirty">30</section>
+
+      <section class="pep thirty-one">31</section>
+      <section class="pep thirty-three">33</section>
+          </>
+      
+      : null }
+
+          {sausage ?
+          <>
+
+<section class="sausage one">1</section>
+      <section class="sausage two">2</section>
+      <section class="sausage three">3</section>
+      <section class="sausage four">4</section>
+      <section class="sausage five">5</section>
+      <section class="sausage six">6</section>
+      <section class="sausage seven">7</section>
+      <section class="sausage eight">8</section>
+      <section class="sausage nine">9</section>
+      <section class="sausage ten">10</section>
+
+      <section class="sausage eleven">11</section>
+      <section class="sausage twelve">12</section>
+      <section class="sausage thirteen">13</section>
+      <section class="sausage fourteen">14</section>
+      <section class="sausage fifteen">15</section>
+      <section class="sausage sixteen">16</section>
+      <section class="sausage seventeen">17</section>
+      <section class="sausage eightteen">18</section>
+      <section class="sausage nineteen">19</section>
+      <section class="sausage twenty">20</section>
+
+      <section class="sausage twenty-one">21</section>
+      <section class="sausage twenty-two">22</section>
+      <section class="sausage twenty-three">23</section>
+      <section class="sausage twenty-four">24</section>
+      <section class="sausage twenty-five">25</section>
+      <section class="sausage twenty-six">26</section>
+      <section class="sausage twenty-seven">27</section>
+      <section class="sausage twenty-eight">28</section>
+      <section class="sausage twenty-nine">29</section>
+      <section class="sausage thirty">30</section>
+
+      <section class="sausage thirty-one">31</section>
+      <section class="sausage thirty-three">33</section>
+
+          </>
+        
+        
+        : null }
+
+     
+      {pineapple ? 
+        <>
+         <section class="pineapple one"></section>
+      <section class="pineapple two"></section>
+      <section class="pineapple three"></section>
+      <section class="pineapple four"></section>
+      <section class="pineapple five"></section>
+      <section class="pineapple six"></section>
+      <section class="pineapple seven"></section>
+      <section class="pineapple eight"></section>
+      <section class="pineapple nine"></section>
+      <section class="pineapple ten"></section>
+
+      <section class="pineapple eleven"></section>
+      <section class="pineapple twelve"></section>
+      <section class="pineapple thirteen"></section>
+      <section class="pineapple fourteen"></section>
+      <section class="pineapple fifteen"></section>
+      <section class="pineapple sixteen"></section>
+      <section class="pineapple seventeen"></section>
+      <section class="pineapple eightteen"></section>
+      <section class="pineapple nineteen"></section>
+      <section class="pineapple twenty"></section>
+
+      <section class="pineapple twenty-one"></section>
+        </>
+    
+        :null }
+
+        { crust === "Regular" &&
+
+          <section class="crust ">
+           {sauce === 'Marinara' && 
+               <section class='sauce'></section>
+          }
+          {sauce === 'White' &&
+            <section class="sauce sauce-white"></section>
+          }
+
+          {sauce === 'BBQ' && 
+            <section class="sauce sauce-bbq"></section>
+          }
+
+          {sauce === 'Buffalo' && 
+            <section class="sauce sauce-buffalo"></section>
+          
+          }
+          <section class="cheese"></section>
+          </section>
+        }
+      
+
+        { crust === "Garlic" && 
+        
+        <section class="crust crust-garlic ">
+          {sauce === 'Marinara' && 
+               <section class='sauce'></section>
+          }
+          {sauce === 'White' &&
+            <section class="sauce sauce-white"></section>
+          }
+
+          {sauce === 'BBQ' && 
+            <section class="sauce sauce-bbq"></section>
+          }
+
+          {sauce === 'Buffalo' && 
+            <section class="sauce sauce-buffalo"></section>
+          
+          }
+        <section class="cheese"></section>
+         </section>
+
+        
+        }
+
+        {crust === "Pretzel" && 
+        
+        
+        <section class="crust crust-pretzel ">
+          {sauce === 'Marinara' && 
+               <section class='sauce'></section>
+          }
+          {sauce === 'White' &&
+            <section class="sauce sauce-white"></section>
+          }
+
+          {sauce === 'BBQ' && 
+            <section class="sauce sauce-bbq"></section>
+          }
+
+          {sauce === 'Buffalo' && 
+            <section class="sauce sauce-buffalo"></section>
+          
+          }
+        <section class="cheese"></section>
+        </section>
+        
+        
+        }
+
+
+
+
+
+          </Pizza>
+        <Container>
         <ToppingBox>
          <ToppingTitle> <h3> Size </h3></ToppingTitle>
                     <FormControl component="fieldset" >
@@ -239,8 +829,8 @@ export default function CreateYourOwnPizza(props){
       />
                <FormControlLabel
                className={classes.toppings}
-        control={<Checkbox checked={values.toppings.spinach} onChange={onCheckBoxChange} name="spinach" />}
-        label="Spinach"
+        control={<Checkbox checked={values.toppings.greenPeppers} onChange={onCheckBoxChange} name="greenPeppers" />}
+        label="Green Peppers"
       />
                <FormControlLabel
                className={classes.toppings}
@@ -265,7 +855,7 @@ export default function CreateYourOwnPizza(props){
                 <h3> Total ${total.toFixed(2)}</h3>
             </Box>
         </ButtonAndTotal>
-
+        </Container>
         </LargeBox>
     )
 }

@@ -1,5 +1,7 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
+import * as Yup from 'yup';
+import formSchema from '../validation/RegisterSchema'
 import {Header, LoginInfo, YourInfo, Container, TextFieldBox2, Border, Container2, ButtonBox} from '../styles/RegisterStyles'
 import LocalPizzaIcon from '@material-ui/icons/LocalPizza';
 import IconButton from '@material-ui/core/IconButton';
@@ -39,6 +41,21 @@ const classes = useStyles();
 
     const handleChange = (evt) => {
         const {name , value} = evt.target
+        Yup
+        .reach(formSchema,name)
+        .validate(value)
+        .then(()=>{
+            setFormErrors({
+                ...formErrors,
+                [name]:''
+            });
+        })
+        .catch(err =>{
+            setFormErrors({
+                ...formErrors,
+                [name]: err.errors[0] 
+            })
+        })
 
         setValues({
             ...values,
