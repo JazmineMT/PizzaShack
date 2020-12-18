@@ -38,7 +38,11 @@ export default function SignIn(props){
 const [values , setValues] = useState(initailFormValues)
 const [formErrors , setFormErrors] = useState(initailFormErrors)
 const classes = useStyles();
+    const onClick = (evt) => {
 
+        setValues(initailFormValues)
+        setFormErrors(initailFormErrors)
+    }
     const handleChange = (evt) => {
         const {name , value} = evt.target
         Yup
@@ -122,7 +126,7 @@ const classes = useStyles();
 
             </LoginInfo>
             <ButtonBox className='buttonBox'>
-                <buton className='button'> Create Account</buton>
+                <buton onClick={onClick} className='button'> Sign In </buton>
             </ButtonBox>
             </Container2>
 

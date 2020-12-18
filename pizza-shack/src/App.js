@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useRef, useEffect} from 'react'
 import { useHistory } from "react-router-dom";
 import { BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-dom'
 import LandingPage from './Components/Pages/LandingPage'
@@ -60,6 +60,13 @@ function App() {
   let history = useHistory();
   const [cart , setCart] = useState([]) 
   const [anchorEl, setAnchorEl] = useState(null);
+  const ContainerRef = useRef(null);
+
+  useEffect(() => {
+      ContainerRef.current.click()
+  }, [])
+    
+
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -92,7 +99,7 @@ function App() {
         aria-controls="customized-menu"
         aria-haspopup="true"
         variant="contained"
-        className='button'
+        class='button nav-button'
         color="primary"
         onClick={handleClick}
       >
@@ -107,31 +114,31 @@ function App() {
       >
         <StyledMenuItem>
 
-        <NavLink className='link' exact to='/pizza'>Pizza</NavLink>
+        <NavLink className='link menu-link' exact to='/pizza'>Pizza</NavLink>
         </StyledMenuItem>
         <StyledMenuItem>
-        <NavLink className='link' exact to='/wings'>Wings</NavLink>
+        <NavLink className='link menu-link' exact to='/wings'>Wings</NavLink>
         </StyledMenuItem>
         <StyledMenuItem>
-        <NavLink className='link' exact to='/sides'>Sides</NavLink> 
+        <NavLink className='link menu-link' exact to='/sides'>Sides</NavLink> 
         </StyledMenuItem>
         <StyledMenuItem>
-        <NavLink className='link' exact to='/pasta'>Pasta</NavLink>
+        <NavLink className='link menu-link' exact to='/pasta'>Pasta</NavLink>
         </StyledMenuItem>
         <StyledMenuItem>
-        <NavLink className='link' exact to='/dessert'>Dessert</NavLink> 
+        <NavLink className='link menu-link' exact to='/dessert'>Dessert</NavLink> 
         </StyledMenuItem>
         <StyledMenuItem>
-        <NavLink className='link' exact to='/drinks'>Drinks</NavLink>
+        <NavLink className='link menu-link' exact to='/drinks'>Drinks</NavLink>
         </StyledMenuItem>
         <StyledMenuItem>
-        <NavLink className='link' exact to='/locationfinder'> Pizza Shack Finder</NavLink> 
+        <NavLink className='link menu-link' exact to='/locationfinder'> Pizza Shack Finder</NavLink> 
       </StyledMenuItem>
       </StyledMenu>
         
-        <button   className='button'><NavLink className='linkb' exact to='/home'>Home</NavLink></button>
-          <button   className='button'> <NavLink className='linkb' exact to='/deals'>Deals</NavLink> </button>
-           <button  className='button'> <NavLink className='linkb' exact to='/cart'><div> My Cart ({cart.length})</div></NavLink></button>
+        <button   className='button nav-button'><NavLink  ref ={ContainerRef} className='linkb' exact to='/home'>Home</NavLink></button>
+          <button   className='button  nav-button'> <NavLink className='linkb' exact to='/deals'>Deals</NavLink> </button>
+           <button  className='button nav-button'> <NavLink className='linkb' exact to='/cart'><div> My Cart ({cart.length})</div></NavLink></button>
         </div>
         </div>
         <div className="secondHeader">

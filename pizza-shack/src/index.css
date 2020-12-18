@@ -31,6 +31,15 @@ body {
   text-decoration: none;
   color: white
 }
+.hidden{
+ opacity:0;
+}
+
+.hidden:hover{
+cursor: pointer;
+opacity: 1;
+}
+
 
 .first{
 display: flex;
@@ -88,6 +97,11 @@ footer{
 
 .link{
   text-decoration: none;
+  color: #EBE7D9;
+}
+
+.menu-link{
+  color: black;
 }
 
 .signIn{
@@ -176,6 +190,11 @@ footer{
   width: 100%;
 }
 
+.nav-button{
+  background-color:transparent;
+  
+}
+
 .button:hover{
   filter: brightness(80%) 
 }
@@ -257,6 +276,7 @@ footer{
   width: 50vw;
   height: 800px;
   font-size: 3rem;
+  cursor: pointer;
 }
 .pizzaLink:hover{
   padding-top:2% ;
@@ -270,7 +290,8 @@ footer{
   background-position: center;
   width: 50vw;
   height: 800px;
-  font-size: 3rem
+  font-size: 3rem;
+  cursor: pointer;
 }
 
 
@@ -286,6 +307,7 @@ footer{
   background-position: center;
   width: 50vw;
   height: 800px;
+  cursor: pointer;
 }
 
 .wingsLink:hover{
@@ -300,6 +322,7 @@ footer{
   background-position: center;
   width: 50vw;
   height: 800px;
+  cursor: pointer;
 
 }
 .sidesLink{
@@ -314,6 +337,7 @@ footer{
   background-position: center;
   width: 50vw;
   height: 800px;
+  cursor: pointer;
 }
 .sidesLink:hover{
   padding-top:2% ;
@@ -327,6 +351,7 @@ footer{
   background-position: center;
   width: 50vw;
   height: 800px;
+  cursor: pointer;
 }
 .pastaLink{
   padding-top:2% ;
@@ -340,6 +365,7 @@ footer{
   background-position: center;
   width: 50vw;
   height: 800px;
+  cursor: pointer;
 }
 .pastaLink:hover{
   padding-top:2% ;
@@ -353,6 +379,7 @@ footer{
   background-position: center;
   width: 50vw;
   height: 800px;
+  cursor: pointer;
 }
 .dessertLink{
   font-size: 3rem;
@@ -366,6 +393,8 @@ footer{
   width: 50vw;
   height: 800px;
   padding-top:2% ;
+  cursor: pointer;
+
 }
 
 .dessertLink:hover{
@@ -380,6 +409,8 @@ footer{
   width: 50vw;
   height: 800px;
   padding-top:2% ;
+  cursor: pointer;
+
 }
 .drinksLink{
   padding-top:2% ;
@@ -393,6 +424,8 @@ footer{
   background-position: center;
   width: 50vw;
   height: 800px;
+  cursor: pointer;
+
 
 }
 
@@ -408,6 +441,8 @@ footer{
   background-position: center;
   width: 50vw;
   height: 800px;
+  cursor: pointer;
+
 
 }
 .boxedMenu{
@@ -476,6 +511,8 @@ height: 800px;
   width: 50vw;
   height: 800px;
 }
+
+
 .menuLink{
   font-size: 4rem;
   font-family: 'Yellowtail', cursive
@@ -1980,12 +2017,10 @@ background: #fff4aa;
 
 .pineapple {
   position: absolute;
-  width: 0;
-  height: 0;
-  border-radius: 20px;
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
-  border-bottom: 60px solid #ffd300;
+  width: 10%;
+  height: 7%;
+  border-radius: 15% 15% 100% 15%;
+  background-image: radial-gradient(circle at top left, #fff8b9, #ffff00);
   box-shadow: 0px 0px 0px #ffd700;
   margin: 250px 0 0 400px;
   z-index: 30;
@@ -2165,10 +2200,10 @@ background: #fff4aa;
 
 .jalepenos {
   position: absolute;
-  width: 60px;
-  height: 60px;
-  border-radius: 50px;
-  background: #548042	;
+  width: 8%;
+  height: 8%;
+  border-radius: 50%;
+  background-image: radial-gradient(circle, #fcfcfc, #b8db9b 25%, transparent 25%, transparent 48%, #399913 50%, #16571c);
   border: 5px solid #3B5323;
   box-shadow: 2px 2px 2px #3B5323;
   margin: 250px 0 0 400px;
@@ -2344,3 +2379,182 @@ background: #fff4aa;
   -o-transform: rotate(-27deg);
   transform: rotate(-27deg);
 }
+
+.extraCheese {
+  position: absolute;
+  width: 10px;
+  height: 75px;
+  background: #ffbf00;
+  box-shadow: 2px 2px 2px #ffd24d;
+  margin: 250px 0 0 400px;
+  z-index: 30;
+}
+
+.extraCheese.one {
+  margin: 250px 0 0 150px;
+  -webkit-transform: rotate(22deg);
+  -moz-transform: rotate(22deg);
+  -o-transform: rotate(22deg);
+  transform: rotate(22deg);
+}
+
+.extraCheese.two {
+  margin: 400px 0 0 500px;
+  -webkit-transform: rotate(-47deg);
+  -moz-transform: rotate(-47deg);
+  -o-transform: rotate(-47deg);
+  transform: rotate(-47deg);
+}
+
+.extraCheese.three {
+  margin: 250px 0 0 230px;
+  -webkit-transform: rotate(115deg);
+  -moz-transform: rotate(115deg);
+  -o-transform: rotate(115deg);
+  transform: rotate(115deg);
+}
+
+.extraCheese.four {
+  margin: 100px 0 0 400px;
+  -webkit-transform: rotate(67deg);
+  -moz-transform: rotate(67deg);
+  -o-transform: rotate(67deg);
+  transform: rotate(67deg);
+}
+
+.extraCheese.five {
+  margin: 450px 0 0 300px;
+  -webkit-transform: rotate(-86deg);
+  -moz-transform: rotate(-86deg);
+  -o-transform: rotate(-86deg);
+  transform: rotate(-86deg);
+}
+
+.extraCheese.six {
+  margin: 250px 0 0 90px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.extraCheese.seven {
+  margin: 380px 0 0 330px;
+  -webkit-transform: rotate(-47deg);
+  -moz-transform: rotate(-47deg);
+  -o-transform: rotate(-47deg);
+  transform: rotate(-47deg);
+}
+
+.extraCheese.eight {
+  margin: 430px 0 0 150px;
+  -webkit-transform: rotate(115deg);
+  -moz-transform: rotate(115deg);
+  -o-transform: rotate(115deg);
+  transform: rotate(115deg);
+}
+
+.extraCheese.nine {
+  margin: 200px 0 0 200px;
+  -webkit-transform: rotate(67deg);
+  -moz-transform: rotate(67deg);
+  -o-transform: rotate(67deg);
+  transform: rotate(67deg);
+}
+
+.extraCheese.ten {
+  margin: 500px 0 0 200px;
+  -webkit-transform: rotate(289deg);
+  -moz-transform: rotate(289deg);
+  -o-transform: rotate(289deg);
+  transform: rotate(289deg);
+}
+
+.extraCheese.eleven {
+  margin: 350px 0 0 200px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.extraCheese.twelve {
+  margin: 300px 0 0 200px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.extraCheese.thirteen {
+  margin: 150px 0 0 200px;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.extraCheese.fourteen {
+  margin: 110px 0 0 300px;
+  -webkit-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+  -o-transform: rotate(10deg);
+  transform: rotate(10deg);
+}
+
+.extraCheese.fifteen {
+  margin: 520px 0 0 290px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.extraCheese.sixteen {
+  margin: 350px 0 0 410px;
+  -webkit-transform: rotate(50deg);
+  -moz-transform: rotate(50deg);
+  -o-transform: rotate(50deg);
+  transform: rotate(50deg);
+}
+
+.extraCheese.seventeen {
+  margin: 460px 0 0 510px;
+  -webkit-transform: rotate(80deg);
+  -moz-transform: rotate(80deg);
+  -o-transform: rotate(80deg);
+  transform: rotate(80deg);
+}
+
+.extraCheese.eightteen {
+  margin: 400px 0 0 410px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.extraCheese.nineteen {
+  margin: 180px 0 0 490px;
+  -webkit-transform: rotate(150deg);
+  -moz-transform: rotate(150deg);
+  -o-transform: rotate(150deg);
+  transform: rotate(150deg);
+}
+
+.extraCheese.twenty {
+  margin: 430px 0 0 420px;
+  -webkit-transform: rotate(-100deg);
+  -moz-transform: rotate(-100deg);
+  -o-transform: rotate(-100deg);
+  transform: rotate(-100deg);
+}
+
+.extraCheese.twenty-one {
+  margin: 160px 0 0 340px;
+  -webkit-transform: rotate(69deg);
+  -moz-transform: rotate(69deg);
+  -o-transform: rotate(69deg);
+  transform: rotate(69deg);
+}
+

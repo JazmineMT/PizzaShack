@@ -9,7 +9,6 @@ import { Container } from '../styles/RegisterStyles';
 
 export default function Pizza(props){
     const ContainerRef = useRef(null);
-    let history = useHistory();
 
     useEffect(() => {
         ContainerRef.current.click()

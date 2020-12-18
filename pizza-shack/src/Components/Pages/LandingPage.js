@@ -51,13 +51,7 @@ export default function LandingPage(props) {
                  <h3  className ='menuLink' onClick={() => history.push("/pasta")}>Pasta</h3>
                  </Carousel.Caption>
   
-                 </Carousel.Item>  
-                 <Carousel.Item >  
-                <div onClick={() => history.push("/sides")} className="sidesLink"> </div> 
-                <Carousel.Caption>
-                <h3  className ='menuLink' onClick={() => history.push("/sides")}>Sides</h3>
-                </Carousel.Caption>
-                 </Carousel.Item>  
+                 </Carousel.Item>   
                  <Carousel.Item >  
                  <div onClick={() => history.push("/dessert")} className="dessertLink">  </div>
                  <Carousel.Caption>

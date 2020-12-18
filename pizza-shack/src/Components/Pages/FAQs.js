@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
       width: '100%',
       display:'flex',
       justifyContent: 'center',
+      
   
     },
     heading: {
@@ -19,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     },
     box: {
         width: '70%',
+        backgroundColor: '#FFF5D0',
     }, 
     accordion: {
     
