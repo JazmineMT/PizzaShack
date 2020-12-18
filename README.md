@@ -4,7 +4,8 @@
 
 I have created a interactive pizza ordering website. Unfortunately you can't order an REAL pizza through my application but you can get a feel for some of my abilties creating front-end websites that users will enjoy. 
 
-I started off by creating wireframes on whimsical to make sure the application had a concise UI flow . Those can be found here -> https://whimsical.com/pizza-application-7wPBDpe1Qq5uo25bbkEhmM
+I started off by creating wireframes on whimsical to make sure the application had a concise UI flow . 
+Those can be found here -> https://whimsical.com/pizza-application-7wPBDpe1Qq5uo25bbkEhmM
 
 This application we created using React.js and styled with styled-components, CSS and the MaterialUI library. 
 
@@ -14,7 +15,7 @@ You can find the link for the deployed site here -> https://pizzashack.netlify.a
 
 You will be pushed to my landing page for the site.
 
-[<img src="pizza-shack\src\gifs\landing.gif" width = "400" />]
+<img src="pizza-shack\src\gifs\landing.gif" width = "400" />
 
 
 ##  Site Features  
