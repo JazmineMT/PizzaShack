@@ -36,7 +36,7 @@ Located in the footer there are links for a About us and FAQ page
 
 Each type of menu item recieved its own page. These can be accessed through the menu button on the navigation bar and on the landing page. 
 
-<img src="pizza-shack\src\gifs\menuPages.gif" width = "400" />
+<img src="pizza-shack\src\gifs\menu2.gif" width = "400" />
 
 ### Location 
 
